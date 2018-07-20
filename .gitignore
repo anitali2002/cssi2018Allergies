@@ -2,7 +2,11 @@
 appengine-generated/
 
 <<<<<<< HEAD
-# Ignore generated pythin files
+<<<<<<< HEAD
+# Ignore generated python files
+=======
+# Ignore generated Python files
+>>>>>>> 02d36529eba416ee95485a42ce641010fa914c68
 =======
 #Ignore generated python files
 >>>>>>> 232a7cc3fd85b901f38a8f8eee218c4ba3289fcc

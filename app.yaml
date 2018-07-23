@@ -3,7 +3,6 @@ api_version: 1
 threadsafe: true
 
 handlers:
-
 - url: /models
   static_dir: models
 

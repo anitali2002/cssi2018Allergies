@@ -12,7 +12,7 @@ theJinjaEnvironment = jinja2.Environment(
 # finds and returns the allergy entity (with the allergy information)
 # in the database of all allergens
 def allergySearch():
-    allergyDatabase = BankAccount.query().fetch()
+    allergyDatabase = Allergy.query().fetch()
     allergySearch = self.request.get("allergySearch")
     for i in range(len(allergyDatabase)):
         if (allergyDatabase[i].allergy == allergySearch):

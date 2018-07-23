@@ -9,6 +9,16 @@ theJinjaEnvironment = jinja2.Environment(
     extensions = [],
     autoescape = True)
 
+# finds and returns the allergy entity (with the allergy information)
+# in the database of all allergens
+def allergySearch():
+    allergyDatabase = BankAccount.query().fetch()
+    allergySearch = self.request.get("allergySearch")
+    for i in range(len(allergyDatabase)):
+        if (allergyDatabase[i].allergy == allergySearch):
+            allergy = allergyDatabase[i]
+    return allergy
+
 class WelcomePage(webapp2.RequestHandler):
     def get(self):
         welcomeTemplate = theJinjaEnvironment.get_template('templates/welcome.html')
@@ -36,6 +46,8 @@ class AllergySubmitPage(webapp2.RequestHandler):
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
-    ('/banking', BankingPage),
-    ('/transactions', TransactionsPage),
+    ('/submitRecipe', RecipeSubmitPage),
+    ('/genInfo', GenInfoPage),
+    ('/allergyInfo', AllergyInfoPage),
+    ('/submitAllergy', AllergySubmitPage),
 ], debug=True)

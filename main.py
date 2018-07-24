@@ -43,6 +43,9 @@ class AllergyInfoPage(webapp2.RequestHandler):
     def get(self):
         allergyInfoTemplate = theJinjaEnvironment.get_template('templates/allergyInfo.html')
         self.response.write(allergyInfoTemplate.render())
+    def post(self):
+        recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
+        self.response.write(recipeTemplate.render())
 
 class AllergySubmitPage(webapp2.RequestHandler):
     def get(self):

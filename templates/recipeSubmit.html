@@ -6,8 +6,10 @@
   <link rel="stylesheet" href="../styles/recipeSubmitStyles.css">
 </head>
 <body>
+  <div id="header">
   <h1>Recipe Submission</h1>
-  <form method="post" action="/memeresult">
+</div>
+  <form method="post" action="/allergyInfo">
     Recipe Title:<br>
     <input type="text" class = "recipeStuff" name="recipeTitle" value="ie: Mac and Cheese">
     <br>
@@ -15,13 +17,15 @@
     <input type="text" class = "recipeStuff" name="allergens" value="ie: Milk; Fish">
     <br>
     Ingredients:<br>
-    <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" value="ie: eggs; chicken">
+    <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" value="ie: eggs; chicken; pasta">
     <br>
     Tags:<br>
-    <input type="text" class = "recipeStuff" name="allergens" value="ie: Milk">
+    <input type="text" class = "recipeStuff" name="allergens" value="ie: Dinner; American">
     <br>
     Steps:<br>
-    <textarea rows="4" cols="50" class = "recipeStuff" >ie: Step 1: Boil pasta; Step 2: Eat food </textarea>
+    <textarea rows="4" cols="50" class = "recipeStuff" >ie: Step 1: Boil Pasta; Step 2: Make Cheese Sauce and cover pasta with sauce; Step 3: Eat food </textarea>
+    <br>
+    <input type="submit" value="Submit Recipe!">
     </form>
   </body>
   </html>

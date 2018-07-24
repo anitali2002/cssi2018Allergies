@@ -3,21 +3,25 @@
 <html>
 <head>
   <title> Add Recipe</title>
-  <link rel="stylesheet" href="../styles/recipeSubmit.css">
+  <link rel="stylesheet" href="../styles/recipeSubmitStyles.css">
 </head>
 <body>
   <h1>Recipe Submission</h1>
   <form method="post" action="/memeresult">
     Recipe Title:<br>
-    <input type="text" name="recipeTitle" value="ie: Mac and Cheese">
+    <input type="text" class = "recipeStuff" name="recipeTitle" value="ie: Mac and Cheese">
     <br>
     Excluded Allergens:<br>
-    <input type="text" name="allergens" value="ie: Milk">
+    <input type="text" class = "recipeStuff" name="allergens" value="ie: Milk; Fish">
     <br>
-    Meme Type:<b>
-      <input type="text" name="ingredients" value="ie: eggs, chicken"
-      <br>
-       
+    Ingredients:<br>
+    <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" value="ie: eggs; chicken">
+    <br>
+    Tags:<br>
+    <input type="text" class = "recipeStuff" name="allergens" value="ie: Milk">
+    <br>
+    Steps:<br>
+    <textarea rows="4" cols="50" class = "recipeStuff" >ie: Step 1: Boil pasta; Step 2: Eat food </textarea>
     </form>
   </body>
   </html>

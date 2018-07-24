@@ -1,5 +1,6 @@
 body {
   background-color: lightblue;
+  margin: 0px;
 }
 #header {
   color: white;
@@ -20,6 +21,15 @@ a:hover {
     color: gray;
     text-align: center;
     text-decoration: none;
+}
+.search {
+    text-align: right;
+}
+.search2 {
+    text-align: right;
+}
+.wrap {
+    width: 100%;
 }
 #row1 {
   display: flex;

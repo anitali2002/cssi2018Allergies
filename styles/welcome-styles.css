@@ -1,0 +1,37 @@
+body {
+  margin: 0px;
+}
+
+#row1 {
+  display: flex;
+  /* insert the necessery property */;
+  height: 100px;
+  align-content: space-between;
+  justify-content: center;
+}
+#row2 {
+  display: flex;
+  height:100px;
+  align-content: space-between;
+  justify-content: center;
+}
+
+.pic {
+  /* Insert the general styling that will apply to ALL images */
+  height:
+}
+
+#m1 {
+  flex: 1 1 auto;
+  /* Finish the flex property for this image */;
+}
+
+#m2 {
+  flex: 1 1 auto;
+  /* Finish the flex property for this image */;
+}
+
+#m3 {
+  flex: 1 1 auto;
+  /* Finish the flex property for this image */;
+}

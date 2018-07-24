@@ -1,6 +1,31 @@
+body {
+  background-color: lightblue;
+}
+#header {
+  color: white;
+  background-color: gray;
+  height: 50px;
+  text-align: center;
+  margin-top:-25px;
+}
+
+body {
+  body {
+    margin: 0px;
+    background-color: orange;
+  }
+}
+
 input {
-    width: 100%;
-    padding: 12px 20px;
+    width: 10%;
+    /* padding: 12px 20px; */
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+textarea {
+    width: 30%;
+    /* padding: 12px 20px; */
     margin: 8px 0;
     box-sizing: border-box;
 }

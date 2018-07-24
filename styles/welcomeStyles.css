@@ -1,5 +1,6 @@
 body {
   background-color: lightblue;
+  margin: 0px;
 }
 #header {
   color: white;
@@ -21,7 +22,19 @@ a:hover {
     text-align: center;
     text-decoration: none;
 }
+<<<<<<< HEAD
+.search {
+    text-align: right;
+}
+.search2 {
+    text-align: right;
+}
+.wrap {
+    width: 100%;
+}
+=======
 
+>>>>>>> f48cd87752849c696533b88f70f965d3dff7023e
 #row1 {
   display: flex;
   /* insert the necessery property */;

@@ -3,6 +3,7 @@ import os
 import jinja2
 from allergy import Allergy
 from recipe import Recipe
+# from google.appengine.api import urlfetch
 
 theJinjaEnvironment = jinja2.Environment(
     loader = jinja2.FileSystemLoader(os.path.dirname(__file__)),
@@ -14,10 +15,14 @@ theJinjaEnvironment = jinja2.Environment(
 def allergySearch():
     allergyDatabase = Allergy.query().fetch()
     allergySearch = self.request.get("allergySearch")
+    allergy = ""
     for i in range(len(allergyDatabase)):
         if (allergyDatabase[i].allergy == allergySearch):
             allergy = allergyDatabase[i]
     return allergy
+
+# def recipeFetch():
+#     urlfetch.fetch(url)
 
 class WelcomePage(webapp2.RequestHandler):
     def get(self):

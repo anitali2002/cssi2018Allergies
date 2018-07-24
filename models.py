@@ -2,8 +2,8 @@ from google.appengine.ext import ndb
 
 class Allergy(ndb.Model):
     allergy = ndb.StringProperty(required = True)
-    symptoms = ndb.StringProperty(repeated = True)
-    toAvoid = ndb.StringProperty()
+    symptoms = ndb.StringProperty() #possible required = True later on when working with crowdsourced adding
+    toAvoid = ndb.StringProperty() #possible required = True later on when working with crowdsourced adding
 
 class Recipe(ndb.Model):
     title = ndb.StringProperty(required = True)

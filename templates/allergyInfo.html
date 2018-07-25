@@ -10,19 +10,28 @@
 </div>
 <div class="row">
   <div class="column" id="left">
-    <h2>{{symptoms}}<h2>
-    <h2>{{toAvoid}}<h2>
-      <h3>{{commentName}}<h3>
-      <h3>{{comment}}<h3>
+    <div id="up">
+    <h2>Symptoms</h2>
+      <p>{{symptoms}}</p>
+    <h2>What to Avoid</h2>
+      <p>{{toAvoid}}<p>
+      </div>
+      <div id="down">
+      <h2>Comments</h2>
+        <p> {{commentName}} </p>
+      <h3>{{comment}}</h3>
+    </div>
   </div>
   <div class="column" id="right">
-    <h3>{{dataRecipes}}<h3>
-    <h3>{{APIRecipes}}<h3>
+    <h2>Recipes</h2>
+    <div id = "scroll">
+    <h3> Our Own Top Picks </h3>
+      <p> {{dataRecipes}}</p>
+    <h3> Other Recipes </h3>
+      <p>{{APIRecipes}}<p>
+    </div>
   </div>
-
-
-
-  </div>
+</div>
 
 
 

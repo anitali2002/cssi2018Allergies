@@ -5,16 +5,12 @@ body {
 }
 #header {
   color: white;
-<<<<<<< HEAD
   justify-content: center;
-  background-color: gray;
   display: flex;
   align-items: center;
   padding: 15px;
-=======
   background-color: #6F4E37;
   height: 50px;
->>>>>>> da8493dc815a21eca65eb7102dc5ff211ec2d114
   text-align: center;
 }
 

@@ -1,17 +1,18 @@
 body {
   background-color: lightblue;
   margin: 0px;
+  color: #6F4E37;
 }
 #header {
-    color: white;
-    justify-content: center;
-    background-color: gray;
-    display: flex;
-    align-items: center;
-    padding: 15px;
-    text-align: center;
+  color: white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color:#6F4E37;
+  height: 50px;
+  text-align: center;
 }
-
 h1 {
   margin: 0;
 }
@@ -31,7 +32,7 @@ a:hover {
 .search {
     text-align: right;
     position: absolute;
-    top: 25px;
+    top: 32px;
     right: 15px;
 }
 .wrap {

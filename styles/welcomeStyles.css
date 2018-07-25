@@ -25,9 +25,10 @@ a:hover {
   color: white;
 }
 .button {
-    color: gray;
+    color: #6F4E37;
     text-align: center;
     text-decoration: none;
+     cursor: pointer;
 }
 .search {
     text-align: right;

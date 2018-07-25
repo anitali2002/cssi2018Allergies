@@ -1,9 +1,10 @@
 body {
   background-color: lightblue;
+  color: #6F4E37
 }
 #header {
   color: white;
-  background-color: gray;
+  background-color: #6F4E37;
   height: 50px;
   text-align: center;
   margin-top:-25px;
@@ -22,6 +23,6 @@ text-align: center;
 
 } */
 
-#submission {
+.submitType {
   visibility: hidden;
 }

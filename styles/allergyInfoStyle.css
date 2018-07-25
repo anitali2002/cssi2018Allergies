@@ -1,0 +1,33 @@
+body {
+  background-color: lightblue;
+  margin: 0px;
+  color: #6F4E37
+}
+#header {
+  color: white;
+  background-color: #6F4E37;
+  height: 50px;
+  text-align: center;
+  margin-top:-25px;
+}
+
+.row {
+    display: flex;
+    column-rule: 4px double #ff00ff;
+}
+
+/* .column {
+    flex: 50%;
+} */
+
+#left {
+  flex: 66%;
+}
+#right {
+  flex: 33%;
+}
+
+ h2, h3{
+  text-align: center;
+
+}

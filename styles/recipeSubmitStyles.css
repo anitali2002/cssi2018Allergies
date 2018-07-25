@@ -7,10 +7,18 @@ body {
   background-color: #6F4E37;
   height: 50px;
   text-align: center;
-  /* margin-top:-25px; */
-  margin-top:0px;
+  margin-top:-25px;
 }
 
+<<<<<<< HEAD
+=======
+body {
+  body {
+    margin: 0px;
+    background-color: orange;
+  }
+}
+>>>>>>> fcaf97e872fa77d6084e9d0f78056535290d2fe1
 input {
   width: 15%;
   /* padding: 12px 20px; */
@@ -25,10 +33,6 @@ textarea {
   box-sizing: border-box;
 }
 
-#allergyTitle {
-  visibility: hidden;
-}
-
-#submission {
+.submitType {
   visibility: hidden;
 }

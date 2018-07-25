@@ -12,6 +12,7 @@ body {
   background-color:#6F4E37;
   height: 50px;
   text-align: center;
+<<<<<<< HEAD
 }
 h1 {
   margin: 0;
@@ -26,6 +27,13 @@ body {
   margin-top:0px;
 }
 input {
+=======
+<<<<<<< HEAD
+  margin-top:-25px;
+}
+
+
+>>>>>>> 12ccc2ebec0b2982baf22f65854759297483dc42
   width: 15%;
   /* padding: 12px 20px; */
   margin: 8px 0;
@@ -39,10 +47,6 @@ textarea {
   box-sizing: border-box;
 }
 
-#allergyTitle {
-  visibility: hidden;
-}
-
-#submission {
+.submitType {
   visibility: hidden;
 }

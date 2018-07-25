@@ -11,30 +11,37 @@
 <div class="row">
   <div class="column" id="left">
     <div id="up">
-    <h2>Symptoms</h2>
+      <h2>Symptoms</h2>
       <p>{{symptoms}}</p>
-    <h2>What to Avoid</h2>
+      <h2>What to Avoid</h2>
       <p>{{toAvoid}}<p>
-      </div>
-      <div id="down">
+    </div>
+    <div id=" down">
       <h2>Comments</h2>
+      <div id="scroll">
         <p> {{commentName}} </p>
-      <h3>{{comment}}</h3>
+        <h3>{{comment}}</h3>
+      </div>
+      Name:<br>
+      <input type="text" class = "comments" name="commentName" value="">
+      <br>
+      Comment:<br>
+      <input type="text" class = "comments" name="comment" value="">
+      <br>
+      <input type="submit" value="Submit Comment">
     </div>
   </div>
   <div class="column" id="right">
     <h2>Recipes</h2>
-    <div id = "scroll">
-    <h3> Our Own Top Picks </h3>
+    <div id = "dataScroll" class="scroll">
+      <h3> Our Own Top Picks </h3>
       <p> {{dataRecipes}}</p>
-    <h3> Other Recipes </h3>
+    </div>
+    <div id = "apiScroll" class"scroll">
+      <h3> Other Recipes </h3>
       <p>{{APIRecipes}}<p>
     </div>
   </div>
 </div>
-
-
-
-
 </body>
 </html>

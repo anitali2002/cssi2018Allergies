@@ -63,6 +63,9 @@ class WelcomePage(webapp2.RequestHandler):
         self.response.write(welcomeTemplate.render())
 
 class RecipeSubmitPage(webapp2.RequestHandler):
+    def get(self):
+        self.post()
+
     def post(self):
         recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
 
@@ -191,49 +194,51 @@ class ThanksPage(webapp2.RequestHandler):
         allergyName = self.request.get("allergyName")
         submission = self.request.get("submission")
 
-        # allergy submit
-        allergy = self.request.get("allergen")
-        symptoms = self.request.get("symptoms")
-        toAvoid = self.request.get("toAvoid")
-        image = self.request.get("allergenImg")
-
-        allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
-        allergy.put()
-
-        #recipe submit
-        title = self.request.get("title")
-        link = self.request.get("link")
-        image = self.request.get("image")
-        allergensFree = self.request.get("allergensFree") #list
-        allergensFree = formatString(allergensFree)
-        ingredients = self.request.get("ingredients") #list
-        ingredients = formatString(ingredients)
-        otherTags = self.request.get("otherTags") #list
-        otherTags = formatString(otherTags)
-        steps = self.request.get("steps") #list
-        steps = formatString(steps)
-
-        recipe = Recipe(title = title)
-
-        for allergen in allergensFree:
-            recipe.allergensFree.append(allergen)
-        for ingredient in ingredients:
-            recipe.ingredients.append(ingredient)
-        for otherTag in otherTags:
-            recipe.otherTags.append(otherTag)
-        for step in steps:
-            recipe.steps.append(step)
-
-        recipe.put()
-
         message = ""
 
         if (submission == "recipe"):
-            message = "Thank you for submitting an new recipe."
-            destination = "/"
-        if (submission == "allergy"):
-            message = "Thank you for submitting an new allergy."
+            #recipe submit
+            title = self.request.get("title")
+            link = self.request.get("link")
+            image = self.request.get("image")
+            allergensFree = self.request.get("allergensFree") #list
+            allergensFree = formatString(allergensFree)
+            ingredients = self.request.get("ingredients") #list
+            ingredients = formatString(ingredients)
+            otherTags = self.request.get("otherTags") #list
+            otherTags = formatString(otherTags)
+            steps = self.request.get("steps") #list
+            steps = formatString(steps)
+
+            recipe = Recipe(title = title)
+
+            for allergen in allergensFree:
+                recipe.allergensFree.append(allergen)
+            for ingredient in ingredients:
+                recipe.ingredients.append(ingredient)
+            for otherTag in otherTags:
+                recipe.otherTags.append(otherTag)
+            for step in steps:
+                recipe.steps.append(step)
+
+            recipe.put()
+
+            message = "Thanks for submitting an new recipe."
             destination = "/allergyInfo?allergyName=" + allergyName
+            
+        if (submission == "allergy"):
+            # allergy submit
+            allergy = self.request.get("allergen")
+            symptoms = self.request.get("symptoms")
+            toAvoid = self.request.get("toAvoid")
+            image = self.request.get("allergenImg")
+
+            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
+
+            allergy.put()
+
+            message = "Thanks for submitting an new allergy."
+            destination = "/"
 
         templateDict = {
             # "allergyName": allergyName,

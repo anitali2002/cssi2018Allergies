@@ -1,0 +1,33 @@
+body {
+  background-color: lightblue;
+  margin: 0px;
+}
+#header {
+  color: white;
+  background-color: gray;
+  height: 50px;
+  text-align: center;
+  margin-top:-25px;
+}
+a:visited, a:link, a:active
+{
+    text-decoration: none;
+    color: white;
+}
+a:hover {
+  color: white;
+}
+.button {
+    color: gray;
+    text-align: center;
+    text-decoration: none;
+}
+.search {
+    text-align: right;
+}
+.search2 {
+    text-align: right;
+}
+.wrap {
+    width: 100%;
+}

@@ -12,7 +12,6 @@ body {
   background-color:#6F4E37;
   height: 50px;
   text-align: center;
-<<<<<<< HEAD
 }
 h1 {
   margin: 0;
@@ -23,12 +22,9 @@ body {
     background-color: orange;
   }
 }
-=======
   /* margin-top:-25px; */
   margin-top:0px;
 }
-
->>>>>>> 9321b02782f6460830ac4466572472a30708245f
 input {
   width: 15%;
   /* padding: 12px 20px; */

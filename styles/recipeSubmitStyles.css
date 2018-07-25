@@ -32,10 +32,6 @@ textarea {
   box-sizing: border-box;
 }
 
-#allergyTitle {
-  visibility: hidden;
-}
-
-#submission {
+.submitType {
   visibility: hidden;
 }

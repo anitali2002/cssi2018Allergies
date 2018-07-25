@@ -9,7 +9,7 @@
   <div id="header">
     <h1> Recipe Submission </h1>
   </div>
-  <form method="post" action="/allergyInfo">
+  <form method="post" action="/thanks">
     Recipe Title:<br>
     <input type="text" class = "recipeStuff" name="title" value="ex: Peanut-Free Brownies">
     <br>
@@ -26,8 +26,8 @@
     <textarea rows="4" cols="50" class = "recipeStuff" name ="steps" > ex: Step 1: Boil pasta.; Step 2: Eat food. </textarea>
     <br>
     <input type="submit" value="Submit Recipe!">
-    <text id="allergyTitle"> {{allergyName}} </text>
-    <text id="submission"> recipe </text>
+    <input type="text" class = "submitType" name="allergyTitle" value={{allergyName}}>
+    <input type="text" class = "submitType" name="submission" value="recipe">
   </form>
 </body>
 </html>

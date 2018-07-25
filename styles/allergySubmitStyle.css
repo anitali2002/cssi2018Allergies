@@ -15,7 +15,10 @@ input {
     margin: 8px 0;
     box-sizing: border-box;
 }
-
+form {
+margin: 0 auto;
+text-align: center;
+}
 /* form{
 
 } */

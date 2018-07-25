@@ -5,10 +5,16 @@ body {
 }
 #header {
   color: white;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 15px;
   background-color:#6F4E37;
   height: 50px;
   text-align: center;
-  margin-top:-25px;
+}
+h1 {
+  margin: 0;
 }
 a:visited, a:link, a:active
 {

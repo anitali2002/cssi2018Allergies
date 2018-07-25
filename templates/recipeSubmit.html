@@ -9,25 +9,24 @@
   <div id="header">
     <h1> Recipe Submission </h1>
   </div>
+  <br>
   <form method="post" action="/thanks">
-    Recipe Title:<br>
-    <input type="text" class = "recipeStuff" name="title" value="ex: Peanut-Free Brownies">
+    <h1 align="center">Recipe Title:</h1><br>
+    <center><input type="text" class = "recipeStuff" name="title" placeholder="ex: nut-free Brownies">
     <br>
-    Excluded Allergens:<br>
-    <input type="text" class = "recipeStuff" name="allergensFree" value="ex: milk; fish">
+      <h1 align="center">Excluded Allergens:</h1><br>
+    <input type="text" class = "recipeStuff" name="allergensFree" placeholder="ex: milk; fish">
     <br>
-    Ingredients:<br>
-    <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" value="ex: eggs; chicken">
+      <h1 align="center">Ingredients:</h1><br>
+    <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" placeholder="ex: eggs; chicken">
     <br>
-    Other Tags:<br>
-    <input type="text" class = "recipeStuff" name="otherTags" value="ex: breakfast">
+      <h1 align="center">Other Tags:</h1><br>
+    <input type="text" class = "recipeStuff" name="otherTags" placeholder="ex: breakfast">
     <br>
-    Steps:<br>
-    <textarea rows="4" cols="50" class = "recipeStuff" name ="steps" > ex: Step 1: Boil pasta.; Step 2: Eat food. </textarea>
+      <h1 align="center">Steps:</h1><br>
+    <textarea rows="4" cols="50" class = "recipeStuff" name ="steps" placeholder="ex: Step 1: Boil pasta.; Step 2: Eat food."></textarea>
     <br>
-    <input type="submit" value="Submit Recipe!">
-    <input type="text" class = "submitType" name="allergyTitle" value={{allergyName}}>
-    <input type="text" class = "submitType" name="submission" value="recipe">
+    <input type="submit" placeholder="Submit Recipe!">
   </form>
 </body>
 </html>

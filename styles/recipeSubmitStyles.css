@@ -1,25 +1,39 @@
 body {
   background-color: lightblue;
-  color: #6F4E37
+  margin: 0px;
+  color: #6F4E37;
 }
 #header {
   color: white;
-  background-color: #6F4E37;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color:#6F4E37;
   height: 50px;
   text-align: center;
-  margin-top:-25px;
-}
-
 <<<<<<< HEAD
-=======
+}
+h1 {
+  margin: 0;
+}
 body {
   body {
     margin: 0px;
     background-color: orange;
   }
 }
->>>>>>> fcaf97e872fa77d6084e9d0f78056535290d2fe1
+  /* margin-top:-25px; */
+  margin-top:0px;
+}
 input {
+=======
+<<<<<<< HEAD
+  margin-top:-25px;
+}
+
+
+>>>>>>> 12ccc2ebec0b2982baf22f65854759297483dc42
   width: 15%;
   /* padding: 12px 20px; */
   margin: 8px 0;

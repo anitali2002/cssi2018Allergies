@@ -50,9 +50,14 @@ class RecipeSubmitPage(webapp2.RequestHandler):
     def post(self):
         recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
 
+        allergyName = self.request.get("allergyName")
+        templateDict = {
+            "allergyName": allergyName
+        }
+
         title = self.response.get("title")
-        link = self.response.get("link")
-        image = self.response.get("image")
+        # link = self.response.get("link")
+        # image = self.response.get("image")
         allergensFree = self.response.get("allergensFree") #list
         allergensFree = formatString(allergensFree)
         ingredients = self.response.get("ingredients") #list
@@ -62,7 +67,7 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         steps = self.response.get("steps") #list
         steps = formatString(steps)
 
-        recipe = Recipe(title = title, link = link, image = image)
+        recipe = Recipe(title = title)
         recipe.put()
         for allergen in allergensFree:
             recipe.allergensFree.append(allergen)
@@ -73,7 +78,7 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         for step in steps:
             recipe.steps.append(step)
 
-        self.response.write(recipeSubmitTemplate.render())
+        self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
     def get(self):
@@ -86,6 +91,7 @@ class AllergyInfoPage(webapp2.RequestHandler):
         recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
 
         allergyName = self.request.get("allergyName")
+        
         allergy = allergySearch(allergyName)
         if (allergy == ""):
             self.redirect("/submitAllergy")

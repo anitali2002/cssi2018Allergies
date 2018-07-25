@@ -18,7 +18,6 @@ class Recipe(ndb.Model):
     otherTags = ndb.StringProperty(repeated = True)
 
 class Questions(ndb.Model):
-    name = ndb.StringProperty()
     question = ndb.StringProperty()
     answerNames = ndb.StringProperty(repeated = True)
     answers = ndb.StringProperty(repeated = True)

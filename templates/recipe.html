@@ -6,12 +6,13 @@
 </head>
 <body>
   <div class="search">
-    <form action="/action_page.php">
+    <form action="/allergyInfo?allergyName={{allergyName}}">
       <input type="text" placeholder="Search..." name="allergyName">
       <button type="submit">Submit</button>
     </form>
   </div>
   <div id="header">
+<<<<<<< HEAD
   <h1>Recipe Page</h1>
 </div>
 <h2 align="center">Title</h2>
@@ -24,5 +25,19 @@
 <p align="center">{{}}</p>
 <h2 align="center">Steps</h2>
 <p align="center">{{}}</p>
+=======
+    <h1>Recipe Page</h1>
+  </div>
+  <h2>Title</h2>
+    <p>{{title}}</p>
+  <h2>Excluded Allergens</h2>
+    <p>{{allergensFree}}</p>
+  <h2>Other Tags</h2>
+    <p>{{otherTags}}</p>
+  <h2>Ingredients</h2>
+    <p>{{ingredients}}</p>
+  <h2>Steps</h2>
+    <p>{{steps}}</p>
+>>>>>>> 9321b02782f6460830ac4466572472a30708245f
 </body>
 </html>

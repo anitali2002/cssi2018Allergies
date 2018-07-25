@@ -21,10 +21,10 @@ def formatString(string):
 
 # Finds and returns the allergy entity (with the allergy information)
 # in the database of all allergens
-def allergySearch(allergySearch):
+def allergySearch(requestHandler, allergySearch):
     allergyDatabase = Allergy.query().fetch()
-    allergySearch = self.request.get("allergySearch")
-    allergy = ""
+    # allergySearch = requestHandler.request.get("allergySearch")
+    allergy = None
     for i in range(len(allergyDatabase)):
         if (allergyDatabase[i].allergy == allergySearch):
             allergy = allergyDatabase[i]
@@ -32,7 +32,7 @@ def allergySearch(allergySearch):
 
 # Finds and returns a list of recipes that fist the allergen-free parameter in the recipes database
 def recipesSearch(allergenFree):
-    recipesDatabase = Allergy.query().fetch()
+    recipesDatabase = Recipe.query().fetch()
     recipes = []
     for i in range(len(recipesDatabase)):
         if (allergenFree in recipesDatabase[i].allergensFree):
@@ -92,7 +92,7 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
-    def get(self):
+    def post(self):
         genInfoTemplate = theJinjaEnvironment.get_template('templates/genInfo.html')
 
         questionsDatabase = Questions.query().fetch()
@@ -123,19 +123,21 @@ class GenInfoPage(webapp2.RequestHandler):
 
 class AllergyInfoPage(webapp2.RequestHandler):
     # posts the selected recipe- if there is a link, goes to the link. if not, go to recipe html template
-    def post(self):
+    def get(self):
         allergyTemplate = theJinjaEnvironment.get_template('templates/allergyInfo.html')
 
         allergyName = self.request.get("allergyName")
 
-        allergy = allergySearch(allergyName)
-        if (allergy == ""):
+        allergy = allergySearch(self, allergyName)
+        print allergy
+        if (allergy == None):
             self.redirect("/submitAllergy")
+            return
 
         ingredientsSearch = self.request.get("ingredients")
         typeSearch = self.request.get("type")
 
-        allergy = allergySearch(allergyName)
+        allergy = allergySearch(self, allergyName)
 
         if (allergy == ""):
             self.redirect("/submitAllergy")
@@ -143,8 +145,8 @@ class AllergyInfoPage(webapp2.RequestHandler):
         # comments about the allergy
         commentName = self.request.get("commentNames")
         comment = self.request.get("comments")
-        allergy.commentName.append(commentName)
-        allergy.comment.append(comment)
+        allergy.commentNames.append(commentName)
+        allergy.comments.append(comment)
 
         templateDict = {
             "allergy": allergy.allergy,
@@ -153,23 +155,24 @@ class AllergyInfoPage(webapp2.RequestHandler):
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
             "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
-            "commentName": allergy.commentName,
-            "comment": allergy.comment
+            "commentName": allergy.commentNames,
+            "comment": allergy.comments
         }
 
-        self.response.write(recipeTemplate.render(templateDict))
+        self.response.write(allergyTemplate.render(templateDict))
 
 class AllergySubmitPage(webapp2.RequestHandler):
-    def post(self):
+    def get(self):
         allergySubmitTemplate = theJinjaEnvironment.get_template('templates/allergySubmit.html')
 
-        allergy = self.request.get("allergen")
-        symptoms = self.request.get("symptoms")
-        toAvoid = self.request.get("toAvoid")
-        image = self.request.get("allergenImg")
-
-        allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
-        allergy.put()
+        # allergy = self.request.get("allergen")
+        # symptoms = self.request.get("symptoms")
+        # toAvoid = self.request.get("toAvoid")
+        # image = self.request.get("allergenImg")
+        #
+        # allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
+        # print(allergy)
+        # allergy.put()
 
         self.response.write(allergySubmitTemplate.render())
 
@@ -191,17 +194,28 @@ class ThanksPage(webapp2.RequestHandler):
         allergyName = self.request.get("allergyName")
         submission = self.request.get("submission")
 
+        allergy = self.request.get("allergen")
+        symptoms = self.request.get("symptoms")
+        toAvoid = self.request.get("toAvoid")
+        image = self.request.get("allergenImg")
+
+        allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
+        print(allergy)
+        allergy.put()
+
+        message = ""
+
         if (submission == "recipe"):
             message = "Thank you for submitting an new recipe."
-            backButtonVisibility = "visible"
+            # backButtonVisibility = "visible"
         if (submission == "allergy"):
             message = "Thank you for submitting an new allergy."
-            backButtonVisibility = "hidden"
+            # backButtonVisibility = "hidden"
 
         templateDict = {
             "allergyName": allergyName,
             "message": message,
-            "backButtonVisibility": backButtonVisibility
+            # "backButtonVisibility": backButtonVisibility
         }
 
         self.response.write(thanksTemplate.render(templateDict))

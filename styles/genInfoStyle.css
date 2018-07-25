@@ -1,16 +1,27 @@
 body {
   background-color: lightblue;
   color: #6F4E37;
-
+  margin: 0;
 }
 #header {
   color: white;
+  justify-content: center;
   background-color: gray;
-  height: 50px;
+  display: flex;
+  align-items: center;
+  padding: 15px;
   text-align: center;
-  margin-top:-25px;
 }
 
+h1 {
+  margin: 0;
+}
+.search {
+    text-align: right;
+    position: absolute;
+    top: 25px;
+    right: 15px;
+}
 .spiel  {
   font-style: italic;
 }

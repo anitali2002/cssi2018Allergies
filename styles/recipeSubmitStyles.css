@@ -6,8 +6,7 @@ body {
   background-color: gray;
   height: 50px;
   text-align: center;
-  /* margin-top:-25px; */
-  margin-top:0px;
+  margin-top:-25px;
 }
 
 body {
@@ -16,7 +15,6 @@ body {
     background-color: orange;
   }
 }
-
 input {
   width: 15%;
   /* padding: 12px 20px; */

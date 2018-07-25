@@ -3,10 +3,16 @@
 <head>
   <title>Allergy</title>
   <link rel="stylesheet" href="../styles/allergyInfoStyle.css">
+  <div class="search">
+    <form action="/allergyInfo?allergyName={{allergyName}}">
+      <input type="text" placeholder="Search..." name="allergyName">
+      <button type="submit">Submit</button>
+    </form>
+  </div>
 </head>
 <body>
   <div id="header">
-  <h1>{{allergy}}</h1>
+  <h1>{{allergyName}}</h1>
 </div>
 <div class="row">
   <div class="column" id="left">
@@ -19,28 +25,41 @@
     <div id=" down">
       <h2>Comments</h2>
       <div id="scroll">
-        <p> {{commentName}} </p>
-        <h3>{{comment}}</h3>
+        {% for i in range(comment|length) %}
+          <h4> {{commentName[i]}} says: {{comment[i]}}</h4><br/>
+        {% endfor %}
       </div>
-      Name:<br>
-      <input type="text" class = "comments" name="commentName" value="">
-      <br>
-      Comment:<br>
-      <input type="text" class = "comments" name="comment" value="">
-      <br>
-      <input type="submit" value="Submit Comment">
+      <form method="post">
+        Name:<br>
+        <input type="text" class = "comments" name="commentName" value="">
+        <br>
+        Comment:<br>
+        <input type="text" class = "comments" name="comment" value="">
+        <br>
+        <input type="submit" value="Submit Comment">
+      </form>
     </div>
   </div>
   <div class="column" id="right">
     <h2>Recipes</h2>
     <div id = "dataScroll" class="scroll">
       <h3> Our Own Top Picks </h3>
-      <p> {{dataRecipes}}</p>
+      {% for recipe in dataRecipes %}
+        <a href="/recipe?recipeName={{recipe.title}}"> {{recipe.title}} </a>
+        <p> {{recipe.ingredients}}</p>
+      {% endfor %}
     </div>
     <div id = "apiScroll" class"scroll">
       <h3> Other Recipes </h3>
-      <p>{{APIRecipes}}<p>
+      {% for recipe in apiRecipes %}
+        <a href="{{recipe["href"]}}"> {{recipe["title"]}} </a>
+        <p> Ingredients: {{recipe["ingredients"]}}</p>
+      {% endfor %}
     </div>
+    <form action="/submitRecipe">
+      <input type="text" class = "submitType" name="allergyTitle" value={{allergyName}}>
+      <button> Submit Your Recipe! </button>
+    </form>
   </div>
 </div>
 

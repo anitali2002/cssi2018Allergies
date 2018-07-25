@@ -127,22 +127,26 @@ class AllergyInfoPage(webapp2.RequestHandler):
         typeSearch = self.request.get("type")
 
         allergy = allergySearch(allergyName)
+        print(allergy)
 
         if (allergy == ""):
             self.redirect("/submitAllergy")
 
         # comments about the allergy
-        commentName = self.request.get("commentNames")
-        comment = self.request.get("comments")
+        commentName = self.request.get("commentName")
+        comment = self.request.get("comment")
+
         allergy.commentNames.append(commentName)
         allergy.comments.append(comment)
+
+        allergy.put()
 
         templateDict = {
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
-            "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
+            "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
             "commentName": allergy.commentNames,
             "comment": allergy.comments
         }
@@ -225,7 +229,7 @@ class ThanksPage(webapp2.RequestHandler):
 
             message = "Thanks for submitting an new recipe."
             destination = "/allergyInfo?allergyName=" + allergyName
-            
+
         if (submission == "allergy"):
             # allergy submit
             allergy = self.request.get("allergen")

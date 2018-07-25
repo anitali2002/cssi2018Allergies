@@ -124,9 +124,14 @@ class GenInfoPage(webapp2.RequestHandler):
 class AllergyInfoPage(webapp2.RequestHandler):
     # posts the selected recipe- if there is a link, goes to the link. if not, go to recipe html template
     def post(self):
-        recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
+        allergyTemplate = theJinjaEnvironment.get_template('templates/allergyInfo.html')
 
         allergyName = self.request.get("allergyName")
+
+        allergy = allergySearch(allergyName)
+        if (allergy == ""):
+            self.redirect("/submitAllergy")
+
         ingredientsSearch = self.request.get("ingredients")
         typeSearch = self.request.get("type")
 
@@ -181,7 +186,7 @@ class RecipePage(webapp2.RequestHandler):
 
 class ThanksPage(webapp2.RequestHandler):
     def post(self):
-        thanksTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
+        thanksTemplate = theJinjaEnvironment.get_template('templates/thanks.html')
 
         allergyName = self.request.get("allergyName")
         submission = self.request.get("submission")

@@ -29,6 +29,15 @@ def allergySearch(allergySearch):
             allergy = allergyDatabase[i]
     return allergy
 
+# Finds and returns a list of recipes that fist the allergen-free parameter in the recipes database
+def recipesSearch(allergenFree):
+    recipesDatabase = Allergy.query().fetch()
+    recipes = []
+    for i in range(len(recipesDatabase)):
+        if (allergenFree in recipesDatabase[i].allergensFree):
+            recipes.append(recipesDatabase[i])
+    return recipes
+
 # RecipePuppy API call. Returns a list of recipe dictionaries.
 # All recipes have "title", "href", "ingredients", and "thumbnail"
 def recipeFetch(ingredients = "", type = ""):
@@ -69,6 +78,7 @@ class RecipeSubmitPage(webapp2.RequestHandler):
 
         recipe = Recipe(title = title)
         recipe.put()
+
         for allergen in allergensFree:
             recipe.allergensFree.append(allergen)
         for ingredient in ingredients:
@@ -83,6 +93,22 @@ class RecipeSubmitPage(webapp2.RequestHandler):
 class GenInfoPage(webapp2.RequestHandler):
     def get(self):
         genInfoTemplate = theJinjaEnvironment.get_template('templates/genInfo.html')
+
+        questionsDatabase = Questions.query().fetch()
+
+        userQuestion = self.request.get("question")
+        question = ""
+
+        for i in range(len(questionsDatabase)):
+            if (questionsDatabase[i].question == userQuestions):
+                question = questionsDatabase[i]
+
+        if question == "":
+            question = Questions(question = userQuestion)
+
+
+
+
         self.response.write(genInfoTemplate.render())
 
 class AllergyInfoPage(webapp2.RequestHandler):
@@ -91,8 +117,16 @@ class AllergyInfoPage(webapp2.RequestHandler):
         recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
 
         allergyName = self.request.get("allergyName")
-        
+        ingredientsSearch = self.request.get("ingredients")
+        typeSearch = self.request.get("type")
+        commentName = self.request.get("commentNames")
+        comment = self.request.get("comments")
+
         allergy = allergySearch(allergyName)
+
+        allergy.commentName.append(commentName)
+        allergy.comment.append(comment)
+
         if (allergy == ""):
             self.redirect("/submitAllergy")
         else:
@@ -100,7 +134,11 @@ class AllergyInfoPage(webapp2.RequestHandler):
                 "allergy": allergy.allergy,
                 # put the submit recipe button in a form with a hidden tag with allergy to be passed
                 "symptoms": allergy.symptoms,
-                "toAvoid": allergy.toAvoid
+                "toAvoid": allergy.toAvoid,
+                "dataRecipes": recipesSearch(allergy.allergy),
+                "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
+                "commentName": allergy.commentName,
+                "comment": allergy.comment
             }
 
         self.response.write(recipeTemplate.render(templateDict))
@@ -109,11 +147,12 @@ class AllergySubmitPage(webapp2.RequestHandler):
     def post(self):
         allergySubmitTemplate = theJinjaEnvironment.get_template('templates/allergySubmit.html')
 
-        allergy = self.request.get("allergy")
+        allergy = self.request.get("allergen")
         symptoms = self.request.get("symptoms")
         toAvoid = self.request.get("toAvoid")
+        image = self.request.get("allergenImg")
 
-        allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid)
+        allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
         allergy.put()
 
         self.response.write(allergySubmitTemplate.render())
@@ -123,11 +162,25 @@ class RecipePage(webapp2.RequestHandler):
         recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
         self.response.write(recipeTemplate.render())
 
+class ThanksPage(webapp2.RequestHandler):
+    def post(self):
+        thanksTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
+
+        submission = self.request.get("submission")
+
+        if (submission == "recipe"):
+            message = "Thank you for submitting an new recipe."
+        if (submission == "allergy"):
+            message = "Thank you for submitting an new allergy."
+
+        self.response.write(thanksTemplate.render())
+
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),
     ('/submitRecipe', RecipeSubmitPage),
     ('/genInfo', GenInfoPage),
     ('/allergyInfo', AllergyInfoPage),
     ('/submitAllergy', AllergySubmitPage),
-    ('/recipe', RecipePage)
+    ('/recipe', RecipePage),
+    ('/thanks', ThanksPage)
 ], debug=True)

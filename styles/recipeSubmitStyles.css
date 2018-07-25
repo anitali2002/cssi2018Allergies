@@ -6,7 +6,8 @@ body {
   background-color: gray;
   height: 50px;
   text-align: center;
-  margin-top:-25px;
+  /* margin-top:-25px; */
+  margin-top:0px;
 }
 
 body {
@@ -31,5 +32,9 @@ textarea {
 }
 
 #allergyTitle {
+  visibility: hidden;
+}
+
+#submission {
   visibility: hidden;
 }

@@ -22,7 +22,6 @@ a:hover {
     text-align: center;
     text-decoration: none;
 }
-<<<<<<< HEAD
 .search {
     text-align: right;
 }
@@ -32,9 +31,6 @@ a:hover {
 .wrap {
     width: 100%;
 }
-=======
-
->>>>>>> f48cd87752849c696533b88f70f965d3dff7023e
 #row1 {
   display: flex;
   /* insert the necessery property */;

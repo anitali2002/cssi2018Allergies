@@ -1,3 +1,7 @@
+html {
+  overflow-y: scroll;
+}
+
 body {
   background-color: lightblue;
   margin: 0px;
@@ -13,21 +17,38 @@ body {
 
 .row {
     display: flex;
-    column-rule: 4px double #ff00ff;
+    column-rule: 1px solid #6F4E37;
 }
-
-/* .column {
-    flex: 50%;
-} */
 
 #left {
   flex: 66%;
+  display: flex;
+  flex-direction: column;
 }
+
+#up {
+  flex: 66%;
+}
+
+#down {
+  flex: 33%;
+}
+
 #right {
   flex: 33%;
 }
 
- h2, h3{
+#scroll{
+  height: 100px;
+  overflow: visible;
+  overflow-y: auto;
+}
+
+
+ h2, h3, p{
   text-align: center;
 
+}
+h2{
+  text-shadow: 2px 2px white;
 }

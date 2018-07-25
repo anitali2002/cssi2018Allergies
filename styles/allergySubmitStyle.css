@@ -1,13 +1,17 @@
 body {
   background-color: lightblue;
+  margin: 0px;
   color: #6F4E37
 }
 #header {
   color: white;
-  background-color: #6F4E37;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  background-color:#6F4E37;
   height: 50px;
   text-align: center;
-  margin-top:-25px;
 }
 input {
     width: 15%;
@@ -17,7 +21,6 @@ input {
 }
 form {
 margin: 0 auto;
-text-align: center;
 }
 /* form{
 

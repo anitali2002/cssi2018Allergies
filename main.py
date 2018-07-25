@@ -63,6 +63,9 @@ class WelcomePage(webapp2.RequestHandler):
         self.response.write(welcomeTemplate.render())
 
 class RecipeSubmitPage(webapp2.RequestHandler):
+    def get(self):
+        self.post()
+
     def post(self):
         recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
 
@@ -220,8 +223,9 @@ class ThanksPage(webapp2.RequestHandler):
 
             recipe.put()
 
-            message = "Thank you for submitting an new recipe."
-            destination = "/"
+            message = "Thanks for submitting an new recipe."
+            destination = "/allergyInfo?allergyName=" + allergyName
+            
         if (submission == "allergy"):
             # allergy submit
             allergy = self.request.get("allergen")
@@ -230,11 +234,11 @@ class ThanksPage(webapp2.RequestHandler):
             image = self.request.get("allergenImg")
 
             allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
-            
+
             allergy.put()
 
-            message = "Thank you for submitting an new allergy."
-            destination = "/allergyInfo?allergyName=" + allergyName
+            message = "Thanks for submitting an new allergy."
+            destination = "/"
 
         templateDict = {
             # "allergyName": allergyName,

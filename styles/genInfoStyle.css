@@ -1,5 +1,7 @@
 body {
   background-color: lightblue;
+  color: #6F4E37;
+
 }
 #header {
   color: white;
@@ -7,4 +9,20 @@ body {
   height: 50px;
   text-align: center;
   margin-top:-25px;
+}
+
+.spiel  {
+  font-style: italic;
+}
+
+h2{
+  text-align: center;
+}
+
+h3{
+  text-shadow: 2px 2px white;
+}
+
+.indent{
+   text-indent: 50px;
 }

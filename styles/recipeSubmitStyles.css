@@ -16,35 +16,7 @@ body {
   margin-top:-25px;
 }
 
-<<<<<<< HEAD
-=======
-body {
-  body {
-    margin: 0px;
-    background-color: orange;
-  }
-}
->>>>>>> fcaf97e872fa77d6084e9d0f78056535290d2fe1
-=======
-<<<<<<< HEAD
-}
-h1 {
-  margin: 0;
-}
-body {
-  body {
-    margin: 0px;
-    background-color: orange;
-  }
-}
-=======
-  /* margin-top:-25px; */
-  margin-top:0px;
-}
 
->>>>>>> 9321b02782f6460830ac4466572472a30708245f
->>>>>>> 3c2e126aa1e0f7fa9a41e13c56e3b16364dafce6
-input {
   width: 15%;
   /* padding: 12px 20px; */
   margin: 8px 0;

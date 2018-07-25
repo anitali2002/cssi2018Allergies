@@ -20,4 +20,5 @@ class Recipe(ndb.Model):
 class Questions(ndb.Model):
     name = ndb.StringProperty()
     question = ndb.StringProperty()
+    answerNames = ndb.StringProperty(repeated = True)
     answers = ndb.StringProperty(repeated = True)

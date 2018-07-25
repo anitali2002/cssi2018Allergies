@@ -4,6 +4,7 @@ import jinja2
 import ast
 from models import Recipe
 from models import Allergy
+from models import Questions
 from google.appengine.api import urlfetch
 
 theJinjaEnvironment = jinja2.Environment(
@@ -106,10 +107,19 @@ class GenInfoPage(webapp2.RequestHandler):
         if question == "":
             question = Questions(question = userQuestion)
 
+        answerName = self.request.get("answerName")
+        answer = self.request.get("answer")
 
+        question.answerNames.append(answerName)
+        question.answers.append(answer)
 
+        questionsDatabase = Questions.query().fetch()
 
-        self.response.write(genInfoTemplate.render())
+        templateDict = {
+            "questionsDatabase": questionsDatabase
+        }
+
+        self.response.write(genInfoTemplate.render(templateDict))
 
 class AllergyInfoPage(webapp2.RequestHandler):
     # posts the selected recipe- if there is a link, goes to the link. if not, go to recipe html template
@@ -119,27 +129,28 @@ class AllergyInfoPage(webapp2.RequestHandler):
         allergyName = self.request.get("allergyName")
         ingredientsSearch = self.request.get("ingredients")
         typeSearch = self.request.get("type")
-        commentName = self.request.get("commentNames")
-        comment = self.request.get("comments")
 
         allergy = allergySearch(allergyName)
 
+        if (allergy == ""):
+            self.redirect("/submitAllergy")
+
+        # comments about the allergy
+        commentName = self.request.get("commentNames")
+        comment = self.request.get("comments")
         allergy.commentName.append(commentName)
         allergy.comment.append(comment)
 
-        if (allergy == ""):
-            self.redirect("/submitAllergy")
-        else:
-            templateDict = {
-                "allergy": allergy.allergy,
-                # put the submit recipe button in a form with a hidden tag with allergy to be passed
-                "symptoms": allergy.symptoms,
-                "toAvoid": allergy.toAvoid,
-                "dataRecipes": recipesSearch(allergy.allergy),
-                "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
-                "commentName": allergy.commentName,
-                "comment": allergy.comment
-            }
+        templateDict = {
+            "allergy": allergy.allergy,
+            # put the submit recipe button in a form with a hidden tag with allergy to be passed
+            "symptoms": allergy.symptoms,
+            "toAvoid": allergy.toAvoid,
+            "dataRecipes": recipesSearch(allergy.allergy),
+            "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
+            "commentName": allergy.commentName,
+            "comment": allergy.comment
+        }
 
         self.response.write(recipeTemplate.render(templateDict))
 
@@ -160,20 +171,35 @@ class AllergySubmitPage(webapp2.RequestHandler):
 class RecipePage(webapp2.RequestHandler):
     def post(self):
         recipeTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
-        self.response.write(recipeTemplate.render())
+
+        allergyName = self.request.get("allergyName")
+        templateDict = {
+            "allergyName": allergyName
+        }
+
+        self.response.write(recipeTemplate.render(templateDict))
 
 class ThanksPage(webapp2.RequestHandler):
     def post(self):
         thanksTemplate = theJinjaEnvironment.get_template('templates/recipe.html')
 
+        allergyName = self.request.get("allergyName")
         submission = self.request.get("submission")
 
         if (submission == "recipe"):
             message = "Thank you for submitting an new recipe."
+            backButtonVisibility = "visible"
         if (submission == "allergy"):
             message = "Thank you for submitting an new allergy."
+            backButtonVisibility = "hidden"
 
-        self.response.write(thanksTemplate.render())
+        templateDict = {
+            "allergyName": allergyName,
+            "message": message,
+            "backButtonVisibility": backButtonVisibility
+        }
+
+        self.response.write(thanksTemplate.render(templateDict))
 
 app = webapp2.WSGIApplication([
     ('/', WelcomePage),

@@ -61,6 +61,10 @@ body {
   margin-right: 20px;
 }
 
+#comments{
+  height: 100px;
+
+}
 .scroll{
   overflow: visible;
   overflow-y: auto;

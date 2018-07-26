@@ -101,22 +101,28 @@
     </form>
     {% for question in questionsDatabase %}
       <div class = "row">
-        <h4 class="question"> {{question.question}} </h4>
-        {% for i in range(question.answers|length) %}
-          <p class="answer"> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
-        {% endfor %}
-        <form class="submitAnswer" method="post" action="/genInfo">
-          <input type="text" class = "question" name="questionKey" value="{{question.question}}">
-          <br>
-          <p id = "type"> Have an answer?</p><br>
-          Name:<br>
-          <input type="text" class = "answer" name="answerName" value="">
-          <br>
-          Answer:<br>
-          <input type="text" class = "answer" name="answer" value="">
-          <br>
-          <input type="submit" value="Submit Answer">
-        </form>
+        <div class="qA">
+          <h4 class="postQuestion"> {{question.question}} </h4>
+          <div class="scroll">
+          {% for i in range(question.answers|length) %}
+            <p class="answer"> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
+          {% endfor %}
+          </div>
+        </div>
+        <div class="submitAnswer">
+          <form class="submitAnswer" method="post" action="/genInfo">
+            <input type="text" class = "question" name="questionKey" value="{{question.question}}">
+            <br>
+            <p id = "type"> Have an answer?</p><br>
+            Name:<br>
+            <input type="text" class = "answer" name="answerName" value="">
+            <br>
+            Answer:<br>
+            <input type="text" class = "answer" name="answer" value="">
+            <br>
+            <input type="submit" value="Submit Answer">
+          </form>
+        </div>
       </div>
     {% endfor %}
 </body>

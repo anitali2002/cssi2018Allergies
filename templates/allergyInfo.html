@@ -28,19 +28,9 @@
       <h2>Comments</h2>
       <div class ="scroll" id="comments">
         {% for i in range(comment|length) %}
-          <h4> {{commentName[i]}} says: {{comment[i]}}</h4><br/>
-          <p> {{commentName[i]}}: {{comment[i]}}</p><br/>
-          <div></div>
-          <div></div>
-            <div></div>
-              <div></div>
-                <div></div>
-                  <div></div>
-                    <div></div>
-                      <div></div>
-                        <div></div>
-                          <div></div>
-
+        <div>
+          <p> {{commentName[i]}} says: {{comment[i]}}</p><br/>
+        </div>
         {% endfor %}
       </div>
       <form method="post">

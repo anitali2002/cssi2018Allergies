@@ -68,14 +68,12 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         self.post()
 
     def post(self):
-        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
 
         allergyName = self.request.get("allergyName")
-
         templateDict = {
             "allergyName": allergyName
         }
-
+        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
         self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
@@ -161,7 +159,6 @@ class AllergyInfoPage(webapp2.RequestHandler):
         templateDict = {
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
-            "images": allergy.images,
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
             "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
@@ -253,14 +250,9 @@ class ThanksPage(webapp2.RequestHandler):
             allergy = self.request.get("allergen")
             symptoms = self.request.get("symptoms")
             toAvoid = self.request.get("toAvoid")
-            images = self.request.get("allergenImg")
-            images = images.split(";")
+            image = self.request.get("allergenImg")
 
-
-            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid)
-
-            for link in images:
-                allergy.images.append(link)
+            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
 
             allergy.put()
 

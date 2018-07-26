@@ -4,15 +4,20 @@
 </head>
 <body>
   <div id="header">
-  <h1>{{allergyName}}</h1>
-  <div class="search">
-    <form action="/allergyInfo?allergyName={{allergyName}}">
-      <input type="text" placeholder="Search..." name="allergyName">
-      <input type="text" placeholder="Allergy Search..." name="allergyName">
-      <button type="submit">Submit</button>
-    </form>
+    <h1>{{allergyName}}</h1>
+    <div class="search">
+      <form action="/allergyInfo?allergyName={{allergyName}}">
+        <input type="text" placeholder="Search..." name="allergyName">
+        <input type="text" placeholder="Allergy Search..." name="allergyName">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="homeButton">
+      <a href="/">
+        <button> Home </button>
+      </a>
+    </div>
   </div>
-</div>
 <div class="row">
   <div class="column" id="left">
      <div id="up">
@@ -26,7 +31,10 @@
       <div class ="scroll" id="comments">
         {% for i in range(comment|length) %}
         <div>
+<<<<<<< HEAD
           <!-- <h4> {{commentName[i]}} says: {{comment[i]}}</h4><br/> -->
+=======
+>>>>>>> f3c82f230245297a15caede913e5b4bbc9ecc09f
           <p> {{commentName[i]}} says: {{comment[i]}}</p><br/>
         </div>
         {% endfor %}

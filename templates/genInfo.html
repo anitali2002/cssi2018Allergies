@@ -19,6 +19,7 @@
       </a>
     </div>
   </div>
+  <div id="body">
     <p class="spiel"> Food allergy is a serious and potentially life-threatening medical condition affecting up to 15 million Americans. One in every 13 children has a food allergy—that’s about 2 in every U.S. classroom. And every 3 minutes, a food allergy reaction sends someone to the emergency room.
 
     <h3 align="center">What Causes a Food Allergy? </h3>
@@ -62,39 +63,9 @@
       <h4>Am I going to die?</h4>
         <p> Allergies are usually not life-threatening, but in the case where one of the symptoms is anaphylaxis, the best thing to do is always carry an Epi-pen and to be cautious in how you interact with food.<p>
 
-    <!-- <h3> Other Questions </h3>
-    <p id = "type"> Have a question? </p> <br>
-    Question:<br>
-    <form method="post" action="/genInfo">
-      <input type="text" class = "askQuestion" name="userQuestion" value="">
-      <br>
-      <input type="submit" value="Submit Question">
-    </form>
-    <div class = "row">
-      {% for question in questionsDatabase %}
-        <h4> {{question.question}} </h4>
-        {% for i in range(question.answers|length) %}
-          <p> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
-        {% endfor %}
-        <form method="post" action="/genInfo">
-          <input type="text" class = "question" name="questionKey" value="{{question.question}}">
-          <br>
-          <p id = "type"> Have an answer?</p><br>
-          Name:<br>
-          <input type="text" class = "answer" name="answerName" value="">
-          <br>
-          Answer:<br>
-          <input type="text" class = "answer" name="answer" value="">
-          <br>
-          <input type="submit" value="Submit Answer">
-        </form>
-      {% endfor %}
-    </div> -->
-
     <h3> Other Questions </h3>
-    <p id = "type"> Have a question? </p> <br>
-    Question:<br>
-    <form method="post" action="/genInfo">
+    <p id = "type"> Have a question? </p>
+    <form id="questionForm" method="post" action="/genInfo">
       <input type="text" class = "askQuestion" name="userQuestion" value="">
       <br>
       <input type="submit" value="Submit Question">
@@ -113,17 +84,16 @@
           <form class="submitAnswer" method="post" action="/genInfo">
             <input type="text" class = "question" name="questionKey" value="{{question.question}}">
             <br>
-            <p id = "type"> Have an answer?</p><br>
-            Name:<br>
-            <input type="text" class = "answer" name="answerName" value="">
-            <br>
-            Answer:<br>
+            <p id = "type"> Have an Answer?</p>
             <input type="text" class = "answer" name="answer" value="">
+            <p id = "type"> Name: </p>
+            <input type="text" class = "answer" name="answerName" value="">
             <br>
             <input type="submit" value="Submit Answer">
           </form>
         </div>
       </div>
     {% endfor %}
+  </div>
 </body>
 </html>

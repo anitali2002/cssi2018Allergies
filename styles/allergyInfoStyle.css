@@ -32,6 +32,13 @@ body {
     left: 20px;
 }
 
+.homeButton {
+    text-align: left;
+    position: absolute;
+    top: 32px;
+    left: 20px;
+}
+
 .row {
     display: flex;
 
@@ -42,7 +49,7 @@ body {
   height: 800px;
   display: flex;
   flex-direction: column;
-  border-right: 1px solid #6F4E37
+  padding-left: 10px;
 }
 
 #up {
@@ -58,6 +65,8 @@ body {
 #right {
   flex: 33%;
   margin-right: 20px;
+  border-left: 1px solid #6F4E37;
+  padding-left: 10px;
 }
 
 #comments{

@@ -224,8 +224,7 @@ class ThanksPage(webapp2.RequestHandler):
             title = self.request.get("title")
             link = self.request.get("link")
             image = self.request.get("image")
-            allergenFree = self.request.get("allergenFree") #list
-            allergenFree = formatString(allergenFree)
+            allergenFree = self.request.get("allergenFree")
             ingredients = self.request.get("ingredients") #list
             ingredients = formatString(ingredients)
             otherTags = self.request.get("otherTags") #list
@@ -233,10 +232,8 @@ class ThanksPage(webapp2.RequestHandler):
             steps = self.request.get("steps") #list
             steps = formatString(steps)
 
-            recipe = Recipe(title = title)
+            recipe = Recipe(title = title, allergenFree = allergenFree)
 
-            for allergen in allergenFree:
-                recipe.allergenFree.append(allergen)
             for ingredient in ingredients:
                 recipe.ingredients.append(ingredient)
             for otherTag in otherTags:
@@ -247,7 +244,7 @@ class ThanksPage(webapp2.RequestHandler):
             recipe.put()
 
             message = "Thanks for submitting an new recipe."
-            destination = "/allergyInfo?allergyName=" + allergyName
+            destination = "/allergyInfo?allergyName=" + allergenFree
 
         if (submission == "allergy"):
             # allergy submit

@@ -21,24 +21,20 @@
   <div class="column" id="left">
      <div id="up">
        <h2>Symptoms</h2>
-       <ul>
-         {% for symptom in symptoms %}
-           <li>{{symptom}} </li>
-         {% endfor %}
-       </ul>
+         <ul>
+           {% for symptom in symptoms %}
+             <li>{{symptom}} </li>
+           {% endfor %}
+         </ul>
        <h2>What to Avoid</h2>
-<<<<<<< HEAD
-       <ul>
-         {% for product in toAvoid %}
-           <li>{{product}} </li>
-         {% endfor %}
-       </ul>
+         <ul>
+           {% for product in toAvoid %}
+             <li>{{product}} </li>
+           {% endfor %}
+         </ul>
        {% for i in range(images|length) %}
          <img src="{{images[i]}}" alt="allergenImage">
        {% endfor %}
-=======
-       <p>{{toAvoid}}<p>
->>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
      </div>
       <div id=" down">
       <h2>Comments</h2>
@@ -67,11 +63,7 @@
       <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
     </form>
     <h3> Our Own Top Picks </h3>
-<<<<<<< HEAD
-    <div id = "dataScroll" class="scroll">
-=======
     <div id="dataScroll" class="scroll">
->>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
       {% for recipe in dataRecipes %}
         <a href="/recipe?recipeName={{recipe["title"]}}"> {{recipe["title"]}} </a>
         <p> Ingredients: {{recipe["ingredients"]}}</p>

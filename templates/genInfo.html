@@ -13,8 +13,12 @@
         <button type="submit">Submit</button>
       </form>
     </div>
+    <div class="homeButton">
+      <a href="/">
+        <button> Home </button>
+      </a>
+    </div>
   </div>
-  <h2>
     <p class="spiel"> Food allergy is a serious and potentially life-threatening medical condition affecting up to 15 million Americans. One in every 13 children has a food allergy—that’s about 2 in every U.S. classroom. And every 3 minutes, a food allergy reaction sends someone to the emergency room.
 
     <h3 align="center">What Causes a Food Allergy? </h3>
@@ -41,19 +45,20 @@
 
     <h3> Other Questions </h3>
     <div align ="center">
-      <form method="post">
-        <p> Have a question? </p> <br>
-        Question:<br>
-        <input type="text" class = "question" name="question">
+      <p> Have a question? </p> <br>
+      Question:<br>
+      <form method="post" action="/genInfo">
+        <input type="text" class = "question" name="userQuestion">
         <br>
-        <input type="submit" value="Submit Answer">
+        <input type="submit" value="Submit Question">
       </form>
       {% for question in questionsDatabase %}
         <h4> {{question.question}} </h4>
         {% for i in range(question.answers|length) %}
-          <p> {{question.answerNames[i]}}:{{question.answers[i]}}</p>
+          <p> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
         {% endfor %}
-        <form method="post">
+        <form method="post" action="/genInfo">
+          <input type="text" class = "question" name="questionKey" value="{{question.question}}">
           <p> Have an answer?</p><br>
           Name:<br>
           <input type="text" class = "answer" name="answerName" value="">

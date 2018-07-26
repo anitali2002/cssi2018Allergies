@@ -21,7 +21,14 @@ h1 {
     text-align: right;
     position: absolute;
     top: 32px;
-    right: 15px;
+    right: 20px;
+}
+
+.homeButton {
+    text-align: left;
+    position: absolute;
+    top: 32px;
+    left: 20px;
 }
 .spiel  {
   font-style: italic;
@@ -38,4 +45,8 @@ h3{
 
 .indent{
    text-indent: 50px;
+}
+
+.question{
+  visibility: hidden;
 }

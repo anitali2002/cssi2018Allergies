@@ -86,27 +86,35 @@ class GenInfoPage(webapp2.RequestHandler):
 
         questionsDatabase = Questions.query().fetch()
 
-        userQuestion = self.request.get("question")
-        question = ""
+        userQuestion = self.request.get("userQuestion")
+
+        question = None
 
         for i in range(len(questionsDatabase)):
             if (questionsDatabase[i].question == userQuestion):
                 question = questionsDatabase[i]
 
-        if question == "":
+        if question == None and not userQuestion == "":
             question = Questions(question = userQuestion)
+            question.put()
 
         answerName = self.request.get("answerName")
         answer = self.request.get("answer")
+        questionKey = self.request.get("questionKey")
 
         if (not answerName == "" and not answer == ""):
+            for i in range(len(questionsDatabase)):
+                if (questionsDatabase[i].question == questionKey):
+                    question = questionsDatabase[i]
             question.answerNames.append(answerName)
             question.answers.append(answer)
+            question.put()
 
-        print(question)
-    
-        question.put()
         questionsDatabase = Questions.query().fetch()
+
+        questionsDatabase.append(question)
+
+        print(questionsDatabase)
 
         templateDict = {
             "questionsDatabase": questionsDatabase

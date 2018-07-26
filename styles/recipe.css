@@ -13,6 +13,19 @@ body {
   height: 50px;
   text-align: center;
 }
+.search {
+    text-align: right;
+    position: absolute;
+    top: 32px;
+    right: 20px;
+}
+
+.homeButton {
+    text-align: left;
+    position: absolute;
+    top: 32px;
+    left: 20px;
+}
 h1 {
   margin: 0;
 }
@@ -37,4 +50,8 @@ a:hover {
 }
 .wrap {
     width: 100%;
+}
+
+.submitType {
+  visibility: hidden;
 }

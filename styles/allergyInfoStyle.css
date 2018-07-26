@@ -22,7 +22,14 @@ body {
     text-align: right;
     position: absolute;
     top: 32px;
-    right: 15px;
+    right: 20px;
+}
+
+.homeButton {
+    text-align: left;
+    position: absolute;
+    top: 32px;
+    left: 20px;
 }
 
 .row {

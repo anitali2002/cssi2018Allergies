@@ -8,6 +8,12 @@
 <body>
   <div id="header">
     <h1>Got Allergies?</h1>
+    <div class="search">
+      <form action="/allergyInfo?allergyName={{allergyName}}">
+        <input type="text" placeholder="Allergy Search..." name="allergyName">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
   <br>
   <div id="row1">
@@ -40,14 +46,8 @@
   </div>
   <div class="button">
     <a href="/genInfo">
-      <button type="button" class="button"><h2>FAQS & General Information</h2></button>
+      <button type="button" class="button"><h2>FAQs & General Information</h2></button>
     </a>
-  </div>
-  <div class="search">
-    <form action="/allergyInfo?allergyName={{allergyName}}">
-      <input type="text" placeholder="Search..." name="allergyName">
-      <button type="submit">Submit</button>
-    </form>
   </div>
 </body>
 </html>

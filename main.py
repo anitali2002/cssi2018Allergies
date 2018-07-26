@@ -16,6 +16,7 @@ theJinjaEnvironment = jinja2.Environment(
 def formatString(string):
     formattedString = string.lower()
     formattedString = formattedString.replace("; ", ";")
+    formattedString = formattedString.replace("\r", "")
     stringList = formattedString.split(";")
 
     return stringList

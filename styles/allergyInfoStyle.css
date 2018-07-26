@@ -48,6 +48,7 @@ body {
   flex: 66%;
   height: 800px;
   display: flex;
+  border-right: 1px solid #6F4E37;
   flex-direction: column;
   padding-left: 10px;
 }
@@ -65,7 +66,7 @@ body {
 #right {
   flex: 33%;
   margin-right: 20px;
-  border-left: 1px solid #6F4E37;
+  /* border-left: 1px solid #6F4E37; */
   padding-left: 10px;
 }
 
@@ -73,6 +74,11 @@ body {
   height: 200px;
   text-align: left;
 }
+
+#comments p{
+  margin: 0px;
+}
+
 .scroll{
   overflow: visible;
   overflow-y: auto;
@@ -108,5 +114,5 @@ input{
 }
 
 img{
-  width: 400px;
+  height: 200px;
 }

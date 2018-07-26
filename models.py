@@ -4,7 +4,7 @@ class Allergy(ndb.Model):
     allergy = ndb.StringProperty(required = True)
     symptoms = ndb.StringProperty() #possible required = True later on when working with crowdsourced adding
     toAvoid = ndb.StringProperty() #possible required = True later on when working with crowdsourced adding
-    image = ndb.StringProperty()
+    images = ndb.StringProperty(repeated = True)
     commentNames = ndb.StringProperty(repeated = True)
     comments = ndb.StringProperty(repeated = True)
 

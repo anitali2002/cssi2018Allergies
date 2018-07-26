@@ -7,7 +7,6 @@
     <h1>{{allergyName}}</h1>
     <div class="search">
       <form action="/allergyInfo?allergyName={{allergyName}}">
-        <input type="text" placeholder="Search..." name="allergyName">
         <input type="text" placeholder="Allergy Search..." name="allergyName">
         <button type="submit">Submit</button>
       </form>
@@ -22,9 +21,17 @@
   <div class ="column" id="left">
      <div id="up">
        <h2>Symptoms</h2>
-       <p>{{symptoms}}</p>
+       <ul>
+         {% for symptom in symptoms %}
+           <li>{{symptom}} </li>
+         {% endfor %}
+       </ul>
        <h2>What to Avoid</h2>
-       <p>{{toAvoid}}<p>
+       <ul>
+         {% for product in toAvoid %}
+           <li>{{product}} </li>
+         {% endfor %}
+       </ul>
        {% for i in range(images|length) %}
          <img src="{{images[i]}}" alt="allergenImage">
        {% endfor %}
@@ -55,8 +62,8 @@
       <button> Submit Your Recipe! </button><br>
       <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
     </form>
+    <h3> Our Own Top Picks </h3>
     <div id = "dataScroll" class="scroll">
-      <h3> Our Own Top Picks </h3>
       {% for recipe in dataRecipes %}
         <a href="/recipe?recipeName={{recipe["title"]}}"> {{recipe["title"]}} </a>
         <p> Ingredients: {{recipe["ingredients"]}}</p>

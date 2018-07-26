@@ -46,6 +46,7 @@ h1 {
 }
 .spiel  {
   font-style: italic;
+  font-size: 26px;
 }
 
 h2{
@@ -83,6 +84,10 @@ h3{
    text-indent: 50px;
 }
 
+.askQuestion{
+  width: 30%;
+}
+
 .question{
   visibility: hidden;
 }
@@ -94,5 +99,11 @@ h3{
 }
 
 .answer{
+  text-align: left;
   text-indent: 5%;
+}
+
+.genInfo {
+  text-align: left;
+  font-size: 16px;
 }

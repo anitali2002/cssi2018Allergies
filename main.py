@@ -14,8 +14,7 @@ theJinjaEnvironment = jinja2.Environment(
 
 # formats a string to all lower case, spaces taken out, and separated (by comma) into a list
 def formatString(string):
-    formattedString = string.lower()
-    formattedString = formattedString.replace("; ", ";")
+    formattedString = string.replace("; ", ";")
     stringList = formattedString.split(";")
 
     return stringList
@@ -112,9 +111,11 @@ class GenInfoPage(webapp2.RequestHandler):
 
         questionsDatabase = Questions.query().fetch()
 
-        questionsDatabase.append(question)
-
-        print(questionsDatabase)
+        # if (not question == None):
+        #     if (not question in questionsDatabase):
+        #         questionsDatabase.append(question)
+        #
+        # print(questionsDatabase)
 
         templateDict = {
             "questionsDatabase": questionsDatabase
@@ -251,13 +252,18 @@ class ThanksPage(webapp2.RequestHandler):
             # allergy submit
             allergy = self.request.get("allergen")
             symptoms = self.request.get("symptoms")
+            symptoms = formatString(symptoms)
             toAvoid = self.request.get("toAvoid")
+            toAvoid = formatString(toAvoid)
             images = self.request.get("allergenImg")
-            images = images.split(";")
-
+            images = formatString(images)
 
             allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid)
 
+            for symptom in symptoms:
+                allergy.symptoms.append(symptom)
+            for product in toAvoid:
+                allergy.toAvoid.append(product)
             for link in images:
                 allergy.images.append(link)
 

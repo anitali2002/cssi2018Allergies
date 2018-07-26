@@ -54,6 +54,10 @@ body {
 
 #up {
   flex: 2;
+  text-align: center;
+}
+ul{
+ text-align: left;
 }
 
 #down {
@@ -79,7 +83,7 @@ body {
 }
   /* overflow-y: auto; */
 #dataScroll{
-  height: 250px;
+  height: 300px;
 
   }
 #apiRecipes{
@@ -108,5 +112,6 @@ input{
 }
 
 img{
-  width: 400px;
+  width: 300px;
+  align-content: center;
 }

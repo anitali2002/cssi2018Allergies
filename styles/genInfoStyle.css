@@ -22,6 +22,12 @@ body {
   text-align: center;
 }
 
+p {
+  margin: 0px;
+  text-align: center;
+}
+
+
 h1 {
   margin: 0;
 }
@@ -49,6 +55,14 @@ h2{
 .row {
     display: flex;
     flex-direction: row;
+}
+
+.type{
+text-align: center;
+}
+
+#questionForm{
+  text-align: center;
 }
 
 .qA, .submitAnswer{

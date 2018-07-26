@@ -64,9 +64,8 @@
         <p> Allergies are usually not life-threatening, but in the case where one of the symptoms is anaphylaxis, the best thing to do is always carry an Epi-pen and to be cautious in how you interact with food.<p>
 
     <h3> Other Questions </h3>
-    <p id = "type"> Have a question? </p> <br>
-    Question:<br>
-    <form method="post" action="/genInfo">
+    <p id = "type"> Have a question? </p>
+    <form id="questionForm" method="post" action="/genInfo">
       <input type="text" class = "askQuestion" name="userQuestion" value="">
       <br>
       <input type="submit" value="Submit Question">
@@ -85,12 +84,10 @@
           <form class="submitAnswer" method="post" action="/genInfo">
             <input type="text" class = "question" name="questionKey" value="{{question.question}}">
             <br>
-            <p id = "type"> Have an answer?</p><br>
-            Name:<br>
-            <input type="text" class = "answer" name="answerName" value="">
-            <br>
-            Answer:<br>
+            <p id = "type"> Have an Answer?</p>
             <input type="text" class = "answer" name="answer" value="">
+            <p id = "type"> Name: </p>
+            <input type="text" class = "answer" name="answerName" value="">
             <br>
             <input type="submit" value="Submit Answer">
           </form>

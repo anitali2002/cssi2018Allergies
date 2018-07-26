@@ -14,33 +14,21 @@
   </div>
 </div>
 <div class="row">
-  <div class ="column" id="left">
+  <div class="column" id="left">
      <div id="up">
        <h2>Symptoms</h2>
        <p>{{symptoms}}</p>
        <h2>What to Avoid</h2>
        <p>{{toAvoid}}<p>
-       {% for i in range(images|length) %}
-         <img src="{{images[i]}}" alt="allergenImage">
-       {% endfor %}
      </div>
       <div id=" down">
       <h2>Comments</h2>
       <div class ="scroll" id="comments">
         {% for i in range(comment|length) %}
-          <h4> {{commentName[i]}} says: {{comment[i]}}</h4><br/>
-          <p> {{commentName[i]}}: {{comment[i]}}</p><br/>
-          <div></div>
-          <div></div>
-            <div></div>
-              <div></div>
-                <div></div>
-                  <div></div>
-                    <div></div>
-                      <div></div>
-                        <div></div>
-                          <div></div>
-
+        <div>
+          <!-- <h4> {{commentName[i]}} says: {{comment[i]}}</h4><br/> -->
+          <p> {{commentName[i]}} says: {{comment[i]}}</p><br/>
+        </div>
         {% endfor %}
       </div>
       <form method="post">
@@ -60,27 +48,29 @@
       <button> Submit Your Recipe! </button><br>
       <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
     </form>
-    <div id = "dataScroll" class="scroll">
-      <h3> Our Own Top Picks </h3>
+    <h3> Our Own Top Picks </h3>
+    <div id="dataScroll" class="scroll">
       {% for recipe in dataRecipes %}
         <a href="/recipe?recipeName={{recipe["title"]}}"> {{recipe["title"]}} </a>
         <p> Ingredients: {{recipe["ingredients"]}}</p>
       {% endfor %}
     </div>
-      <h3> Other Recipes </h3>
-      <form method="post" align="center">
-        Search By Ingredient:<br>
-        <input type="text" class = "recipeSearch" name="ingredients" value="">
-        <br>
-        Search By Type:<br>
-        <input type="text" class = "recipeSearch" name="type" value="">
-        <br>
-        <input type="submit" value="Search">
-      </form>
-    <div id = "apiScroll" class = "scroll">
+    <h3> Other Recipes </h3>
+    <form method="post" align="center">
+      Search By Ingredient:<br>
+      <input type="text" class = "recipeSearch" name="ingredients" value="">
+      <br>
+      Search By Type:<br>
+      <input type="text" class = "recipeSearch" name="type" value="">
+      <br>
+      <input type="submit" value="Search">
+    </form>
+    <div id="apiScroll" class="scroll">
       {% for recipe in apiRecipes %}
-        <a href="{{recipe["href"]}}"> {{recipe["title"]}} </a>
-        <p> Ingredients: {{recipe["ingredients"]}}</p>
+        <div>
+          <a href="{{recipe["href"]}}"> {{recipe["title"]}} </a>
+          <p> Ingredients: {{recipe["ingredients"]}}</p>
+        </div>
       {% endfor %}
     </div>
   </div>

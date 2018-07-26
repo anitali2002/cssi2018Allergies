@@ -14,6 +14,13 @@ body {
   text-align: center;
 }
 
+.homeButton {
+    text-align: left;
+    position: absolute;
+    top: 32px;
+    left: 20px;
+}
+
 input{
   width: 50%;
   /* padding: 12px 20px; */

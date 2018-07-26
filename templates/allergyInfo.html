@@ -6,6 +6,7 @@
 </head>
 <body>
   <div id="header">
+<<<<<<< HEAD
   <h1>{{allergyName}}</h1>
   <div class="search">
     <form action="/allergyInfo?allergyName={{allergyName}}">
@@ -18,6 +19,9 @@
       <button> Home </button>
     </a>
   </div>
+=======
+  <h1>{{allergy}}</h1>
+>>>>>>> 142c82668dad3b6cfb525c77d761b82aa0431d4c
 </div>
 <div class="row">
   <div class="column" id="left">
@@ -29,50 +33,78 @@
     </div>
     <div id=" down">
       <h2>Comments</h2>
-      <div id="scroll">
-        {% for i in range(comment|length) %}
-          <p> {{commentName[i]}}: {{comment[i]}}</p><br/>
-        {% endfor %}
+      <div class ="scroll">
+        <p> {{commentName}} </p>
+        <p>  for the colonists and the slave laborers.[9] The 17th-century British industrial processes for corned beef did not distinguish between different cuts of beef beyond the tough and undesirable parts such as the beef necks and shanks.[9][10] Rather, the grading was done by the weight of the cattle into "small beef", "cargo beef", and "best mess beef", the former being the worst and the latter the best.[9] Much of the undesirable portions and lower grades were traded to the French, while better parts were saved for British consumption or shipped to British colonies.[9]
+
+
+A corned beef on rye bread sandwich served in an American restaurant
+Ireland produced a significant amount of the corned beef in the Atlantic trade from local cattle and salt imported from the Iberian Peninsula and southwestern France.[9] Coastal cities, such as Dublin, Belfast, and Cork, created vast beef curing and packing industries, with Cork producing half of Ireland's annual beef exports in 1668.[10] Although the production and trade of corned beef as a commodity was a source of great wealth for the colonial nations of Britain and France (which were participating in the Atlantic slave trade), in the colonies themselves, the product was looked upon with disdain due to its association with poverty and slavery.[9]
+
+Increasing corned beef production to satisfy the rising populations of the industrialised areas of Great Britain and Atlantic trade worsened the effects of the Irish Famine and the Great Potato Famine:
+
+The Celtic grazing lands of ... Ireland had been used to pasture cows for centuries. The British colonized ... the Irish, transforming much of their countryside into an extended grazing land to raise cattle for a hungry consumer market at home ... The British taste for beef had a devastating impact on the impoverished and disenfranchised people of ... Ireland. Pushed off the best pasture land and forced to farm smaller plots of marginal land, the Irish turned to the potato, a crop that could be grown abundantly in less favorable soil. Eventually, cows took over much of Ireland, leaving the native population virtually dependent on the potato for survival.
+
+— Jeremy Rifkin, Beyond Beef[11]
+Despite being a major producer of beef, most of the people of Ireland during this period consumed little of the meat produced, in either fresh or salted form, due to its prohibitive cost. This was because most of the farms and its produce were owned by wealthy Anglo-Irish who were absentee landlords and that most of the population were from families of poor tenant farmers, and that most of the corned beef was exported.
+
+The lack of beef or corned beef in the Irish diet is especially true in the north of Ireland and areas away from the major centres for corned beef production. However, individuals living in these production centres such as Cork did consume the product to a certain extent. The majority of Irish who resided in Ireland at the time mainly consumed dairy products and meats such as pork or salt pork,[10] bacon and cabbage being a notable example of a traditional Irish snack.
+
+20th century to present
+
+Canned corned beef produced in Argentina for export to New Zealand, 1946
+Corned beef became a less important commodity in 19th-century Atlantic trade, due in part to the abolition of slavery,[9] but corned beef production and its canned form remained an important food source during the Second World War. Much of the canned corned beef came from Fray Bentos in Uruguay, with over 16 million cans exported in 1943.[10] Even now, significant amounts of the global canned corned beef supply comes from South America. Today, around 80% of the global canned corned beef supply originates from Brazil.[12]</p>
+        <h3>{{comment}}</h3>
       </div>
-      <form method="post">
-        Name:<br>
-        <input type="text" class = "comments" name="commentName" value="">
-        <br>
-        Comment:<br>
-        <input type="text" class = "comments" name="comment" value="">
-        <br>
-        <input type="submit" value="Submit Comment">
-      </form>
+      Name:<br>
+      <input type="text" class = "comments" name="commentName" value="">
+      <br>
+      Comment:<br>
+      <input type="text" class = "comments" name="comment" value="">
+      <br>
+      <input type="submit" value="Submit Comment">
     </div>
   </div>
   <div class="column" id="right">
     <h2>Recipes</h2>
-    <form action="/submitRecipe" align="center">
-      <button> Submit Your Recipe! </button>
-      <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
-    </form>
+    <h3> Our Own Top Picks </h3>
     <div id = "dataScroll" class="scroll">
-      <h3> Our Own Top Picks </h3>
-      {% for recipe in dataRecipes %}
-        <a href="/recipe?recipeName={{recipe.title}}"> {{recipe.title}} </a>
-        <p> {{recipe.ingredients}}</p>
-      {% endfor %}
+      <p> {{dataRecipes}}</p>
+      <p>  for the colonists and the slave laborers.[9] The 17th-century British industrial processes for corned beef did not distinguish between different cuts of beef beyond the tough and undesirable parts such as the beef necks and shanks.[9][10] Rather, the grading was done by the weight of the cattle into "small beef", "cargo beef", and "best mess beef", the former being the worst and the latter the best.[9] Much of the undesirable portions and lower grades were traded to the French, while better parts were saved for British consumption or shipped to British colonies.[9]
+
+
+A corned beef on rye bread sandwich served in an American restaurant
+Ireland produced a significant amount of the corned beef in the Atlantic trade from local cattle and salt imported from the Iberian Peninsula and southwestern France.[9] Coastal cities, such as Dublin, Belfast, and Cork, created vast beef curing and packing industries, with Cork producing half of Ireland's annual beef exports in 1668.[10] Although the production and trade of corned beef as a commodity was a source of great wealth for the colonial nations of Britain and France (which were participating in the Atlantic slave trade), in the colonies themselves, the product was looked upon with disdain due to its association with poverty and slavery.[9]
+
+Increasing corned beef production to satisfy the rising populations of the industrialised areas of Great Britain and Atlantic trade worsened the effects of the Irish Famine and the Great Potato Famine:
+
+The Celtic grazing lands of ... Ireland had been used to pasture cows for centuries. The British colonized ... the Irish, transforming much of their countryside into an extended grazing land to raise cattle for a hungry consumer market at home ... The British taste for beef had a devastating impact on the impoverished and disenfranchised people of ... Ireland. Pushed off the best pasture land and forced to farm smaller plots of marginal land, the Irish turned to the potato, a crop that could be grown abundantly in less favorable soil. Eventually, cows took over much of Ireland, leaving the native population virtually dependent on the potato for survival.
+
+— Jeremy Rifkin, Beyond Beef[11]
+Despite being a major producer of beef, most of the people of Ireland during this period consumed little of the meat produced, in either fresh or salted form, due to its prohibitive cost. This was because most of the farms and its produce were owned by wealthy Anglo-Irish who were absentee landlords and that most of the population were from families of poor tenant farmers, and that most of the corned beef was exported.
+
+The lack of beef or corned beef in the Irish diet is especially true in the north of Ireland and areas away from the major centres for corned beef production. However, individuals living in these production centres such as Cork did consume the product to a certain extent. The majority of Irish who resided in Ireland at the time mainly consumed dairy products and meats such as pork or salt pork,[10] bacon and cabbage being a notable example of a traditional Irish snack.
+
+20th century to present
+
+Canned corned beef produced in Argentina for export to New Zealand, 1946
+Corned beef became a less important commodity in 19th-century Atlantic trade, due in part to the abolition of slavery,[9] but corned beef production and its canned form remained an important food source during the Second World War. Much of the canned corned beef came from Fray Bentos in Uruguay, with over 16 million cans exported in 1943.[10] Even now, significant amounts of the global canned corned beef supply comes from South America. Today, around 80% of the global canned corned beef supply originates from Brazil.[12]<p>
     </div>
-    <div id = "apiScroll" class"scroll">
-      <h3> Other Recipes </h3>
-      <form method="post" align="center">
-        Search By Ingredient:<br>
-        <input type="text" class = "recipeSearch" name="ingredients" value="">
-        <br>
-        Search By Type:<br>
-        <input type="text" class = "recipeSearch" name="type" value="">
-        <br>
-        <input type="submit" value="Search">
-      </form>
-      {% for recipe in apiRecipes %}
-        <a href="{{recipe["href"]}}"> {{recipe["title"]}} </a>
-        <p> Ingredients: {{recipe["ingredients"]}}</p>
-      {% endfor %}
+    <h3 id="apiRecipes"> Other Recipes </h3>
+    <div id = "apiScroll" class="scroll">
+      <p>{{APIRecipes}}<p>
+        <p>
+Libby, McNeill & Libby Corned Beef, 1898
+Although the practice of curing beef was found locally in many cultures, the industrial production of corned beef started in the British Industrial Revolution. Irish corned beef was used and traded extensively from the 17th century to the mid-19th century for British civilian consumption and as provisions for the British naval fleets and North American armies due to its nonperishable nature.[8] The product was also traded to the French for use in Caribbean sugar plantations as sustenance for the colonists and the slave laborers.[9] The 17th-century British industrial processes for corned beef did not distinguish between different cuts of beef beyond the tough and undesirable parts such as the beef necks and shanks.[9][10] Rather, the grading was done by the weight of the cattle into "small beef", "cargo beef", and "best mess beef", the former being the worst and the latter the best.[9] Much of the undesirable portions and lower grades were traded to the French, while better parts were saved for British consumption or shipped to British colonies.[9]
+
+
+A corned beef on rye bread sandwich served in an American restaurant
+Ireland produced a significant amount of the corned beef in the Atlantic trade from local cattle and salt imported from the Iberian Peninsula and southwestern France.[9] Coastal cities, such as Dublin, Belfast, and Cork, created vast beef curing and packing industries, with Cork producing half of Ireland's annual beef exports in 1668.[10] Although the production and trade of corned beef as a commodity was a source of great wealth for the colonial nations of Britain and France (which were participating in the Atlantic slave trade), in the colonies themselves, the product was looked upon with disdain due to its association with poverty and slavery.[9]
+
+Increasing corned beef production to satisfy the rising populations of the industrialised areas of Great Britain and Atlantic trade worsened the effects of the Irish Famine and the Great Potato Famine:
+Libby, McNeill & Libby Corned Beef, 1898
+Although the practice of curing beef was found locally in many cultures, the industrial production of corned beef started in the British Industrial Revolution. Irish corned beef was used and traded extensively from the 17th century to the mid-19th century for British civilian consumption and as provisions for the British naval fleets and North American armies due to its nonperishable nature.[8] The product was also traded to the French for use in Caribbean sugar plantations as sustenance for the colonists and the slave laborers.[9] The 17th-century British industrial processes for corned beef did not distinguish between different cuts of beef beyond the tough and undesirable parts such as the beef necks and shanks.[9][10] Rather, the grading was done by the weight of the cattle into "small beef", "cargo beef", and "best mess beef", the former being the worst and the latter the best.[9] Much of the undesirable portions and lower grades were traded to the French, while better parts were saved for British consumption or shipped to British colonies.[9]
+Increasing corned beef production to satisfy the rising populations of the industrialised areas of Great Britain and Atlantic trade worsened the effects of the Irish Famine and the Great Potato Famine:<p>
     </div>
   </div>
 </div>

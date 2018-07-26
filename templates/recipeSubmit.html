@@ -15,7 +15,7 @@
     <center><input type="text" class = "recipeStuff" name="title" placeholder="ex: nut-free Brownies">
     <br>
       <h1 align="center">Excluded Allergens:</h1><br>
-    <input type="text" class = "recipeStuff" name="allergensFree" placeholder="ex: milk; fish">
+    <input type="text" class = "recipeStuff" name="allergenFree" placeholder="ex: milk; fish">
     <br>
       <h1 align="center">Ingredients:</h1><br>
     <input id="ingredients" type="text" class = "recipeStuff" name="ingredients" placeholder="ex: eggs; chicken">
@@ -27,6 +27,8 @@
     <textarea rows="4" cols="50" class = "recipeStuff" name ="steps" placeholder="ex: Step 1: Boil pasta.; Step 2: Eat food."></textarea>
     <br>
     <input type="submit" placeholder="Submit Recipe!">
+    <input type="text" class = "submitType" name="submission" value="recipe">
+    <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
   </form>
 </body>
 </html>

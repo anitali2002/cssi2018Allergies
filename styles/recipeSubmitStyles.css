@@ -27,16 +27,10 @@ body {
   margin-top:0px;
 }
 input {
-=======
-<<<<<<< HEAD
-  margin-top:-25px;
-}
-
-
->>>>>>> 12ccc2ebec0b2982baf22f65854759297483dc42
   width: 15%;
   /* padding: 12px 20px; */
   margin: 8px 0;
+  margin-top:0px;
   box-sizing: border-box;
 }
 

@@ -32,11 +32,38 @@
         <li>Food allergy reactions can vary unpredictably from mild to severe. Mild food allergy reactions may involve only a few hives or minor abdominal pain, though some food allergy reactions progress to severe anaphylaxis with low blood pressure and loss of consciousness. </li>
       </ul>
 
-    <h2>FAQS</h2>
+    <h3>FAQS</h3>
 
-    <h3>What is a food allergy?</h3>
-    <h3>What are symptoms of a food allergy?</h3>
-    <h3>What can I eat?</h3>
-    <h3>Am I going to die?</h3>
+    <h4>What is a food allergy?</h4>
+    <h4>What are symptoms of a food allergy?</h4>
+    <h4>What can I eat?</h4>
+    <h4>Am I going to die?</h4>
+
+    <h3> Other Questions </h3>
+    <div align ="center">
+      <form method="post">
+        <p> Have a question? </p> <br>
+        Question:<br>
+        <input type="text" class = "question" name="question">
+        <br>
+        <input type="submit" value="Submit Answer">
+      </form>
+      {% for question in questionsDatabase %}
+        <h4> {{question.question}} </h4>
+        {% for i in range(question.answers|length) %}
+          <p> {{question.answerNames[i]}}:{{question.answers[i]}}</p>
+        {% endfor %}
+        <form method="post">
+          <p> Have an answer?</p><br>
+          Name:<br>
+          <input type="text" class = "answer" name="answerName" value="">
+          <br>
+          Answer:<br>
+          <input type="text" class = "answer" name="answer" value="">
+          <br>
+          <input type="submit" value="Submit Answer">
+        </form>
+      {% endfor %}
+    </div>
 </body>
 </html>

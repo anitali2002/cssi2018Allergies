@@ -1,11 +1,13 @@
 html {
   overflow-y: scroll;
+
 }
+
 
 body {
   background-color: lightblue;
   margin: 0px;
-  color: #6F4E37
+  color: #6F4E37;
 }
 #header {
   color: white;
@@ -17,6 +19,7 @@ body {
 
 .row {
     display: flex;
+
 }
 
 #left {
@@ -43,14 +46,23 @@ body {
 }
 
 .scroll{
-  height: auto;
   overflow: visible;
   overflow-y: auto;
 }
+  /* overflow-y: auto; */
+#dataScroll{
+  height: 300px;
 
-#apiScroll{
+  }
+#apiRecipes{
    margin-top: 100px;
 }
+
+#apiScroll{
+   height: 300px;
+
+ }
+
 
  h2, h3, p{
   text-align: center;

@@ -225,7 +225,7 @@ class ThanksPage(webapp2.RequestHandler):
 
             message = "Thanks for submitting an new recipe."
             destination = "/allergyInfo?allergyName=" + allergyName
-            
+
         if (submission == "allergy"):
             # allergy submit
             allergy = self.request.get("allergen")

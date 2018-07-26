@@ -38,6 +38,30 @@ h2{
   text-align: center;
 }
 
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.question, .answer, .submitAnswer{
+  width: 33%;
+}
+
+#left {
+  flex: 1;
+  height: 800px;
+  border-right: 1px solid #6F4E37;
+  align-content: center;
+  text-align: center;
+}
+
+#right {
+  flex: 1;
+  margin-right: 20px;
+  align-content: center;
+  text-align: center;
+}
+
 h3{
   text-shadow: 2px 2px white;
   text-align: center;

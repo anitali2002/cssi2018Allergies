@@ -1,6 +1,5 @@
 html {
   overflow-y: scroll;
-
 }
 
 body {
@@ -62,8 +61,8 @@ body {
 }
 
 #comments{
-  height: 100px;
-
+  height: 300px;
+  text-align: left;
 }
 .scroll{
   overflow: visible;
@@ -71,7 +70,7 @@ body {
 }
   /* overflow-y: auto; */
 #dataScroll{
-  height: 300px;
+  height: 200px;
 
   }
 #apiRecipes{
@@ -79,12 +78,11 @@ body {
 }
 
 #apiScroll{
-   height: 300px;
-
+   height: 200px;
  }
 
 
- h2, h3, p{
+h2, h3, p{
   text-align: center;
 
 }

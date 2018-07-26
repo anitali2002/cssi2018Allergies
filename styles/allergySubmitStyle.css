@@ -29,3 +29,14 @@ margin: 0 auto;
 .submitType {
   visibility: hidden;
 }
+
+.center-form{
+
+}
+.container{
+  /* display: flex;
+  justify-content: center; */
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+}

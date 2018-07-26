@@ -38,7 +38,7 @@ def recipesSearch(allergenFree):
     recipes = []
 
     for i in range(len(recipesDatabase)):
-        if (allergenFree in recipesDatabase[i].allergensFree):
+        if (allergenFree in recipesDatabase[i].allergenFree):
             recipes.append(recipesDatabase[i])
 
     return recipes
@@ -78,6 +78,9 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
+    def get(self):
+        self.post()
+
     def post(self):
         genInfoTemplate = theJinjaEnvironment.get_template('templates/genInfo.html')
 
@@ -87,7 +90,7 @@ class GenInfoPage(webapp2.RequestHandler):
         question = ""
 
         for i in range(len(questionsDatabase)):
-            if (questionsDatabase[i].question == userQuestions):
+            if (questionsDatabase[i].question == userQuestion):
                 question = questionsDatabase[i]
 
         if question == "":
@@ -96,9 +99,13 @@ class GenInfoPage(webapp2.RequestHandler):
         answerName = self.request.get("answerName")
         answer = self.request.get("answer")
 
-        question.answerNames.append(answerName)
-        question.answers.append(answer)
+        if (not answerName == "" and not answer == ""):
+            question.answerNames.append(answerName)
+            question.answers.append(answer)
 
+        print(question)
+    
+        question.put()
         questionsDatabase = Questions.query().fetch()
 
         templateDict = {
@@ -123,26 +130,31 @@ class AllergyInfoPage(webapp2.RequestHandler):
             self.redirect("/submitAllergy")
             return
 
-        ingredientsSearch = self.request.get("ingredients")
+        ingredientsSearch = self.request.get("ingredients") + ",-" + allergyName
         typeSearch = self.request.get("type")
 
         allergy = allergySearch(allergyName)
+        print(allergy)
 
         if (allergy == ""):
             self.redirect("/submitAllergy")
 
         # comments about the allergy
-        commentName = self.request.get("commentNames")
-        comment = self.request.get("comments")
-        allergy.commentNames.append(commentName)
-        allergy.comments.append(comment)
+        commentName = self.request.get("commentName")
+        comment = self.request.get("comment")
+
+        if (not commentName == "" and not comment == ""):
+            allergy.commentNames.append(commentName)
+            allergy.comments.append(comment)
+
+        allergy.put()
 
         templateDict = {
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
-            "APIRecipes": recipeFetch(ingredientsSearch, typeSearch),
+            "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
             "commentName": allergy.commentNames,
             "comment": allergy.comments
         }
@@ -169,8 +181,10 @@ class RecipePage(webapp2.RequestHandler):
 
         recipesDatabase = Recipe.query().fetch()
 
+        recipe = None
+
         for i in range(len(recipesDatabase)):
-            if (recipesDatabase[i] == recipeName):
+            if (recipesDatabase[i].title == recipeName):
                 recipe = recipesDatabase[i]
 
         allergyName = self.request.get("allergyName")
@@ -178,7 +192,7 @@ class RecipePage(webapp2.RequestHandler):
         templateDict = {
             "allergyName": allergyName,
             "title": recipe.title,
-            "allergensFree": recipe.allergensFree,
+            "allergenFree": recipe.allergenFree,
             "otherTags": recipe.otherTags,
             "ingredients": recipe.ingredients,
             "steps": recipe.steps,
@@ -195,14 +209,15 @@ class ThanksPage(webapp2.RequestHandler):
         submission = self.request.get("submission")
 
         message = ""
+        destination = ""
 
         if (submission == "recipe"):
             #recipe submit
             title = self.request.get("title")
             link = self.request.get("link")
             image = self.request.get("image")
-            allergensFree = self.request.get("allergensFree") #list
-            allergensFree = formatString(allergensFree)
+            allergenFree = self.request.get("allergenFree") #list
+            allergenFree = formatString(allergenFree)
             ingredients = self.request.get("ingredients") #list
             ingredients = formatString(ingredients)
             otherTags = self.request.get("otherTags") #list
@@ -212,8 +227,8 @@ class ThanksPage(webapp2.RequestHandler):
 
             recipe = Recipe(title = title)
 
-            for allergen in allergensFree:
-                recipe.allergensFree.append(allergen)
+            for allergen in allergenFree:
+                recipe.allergenFree.append(allergen)
             for ingredient in ingredients:
                 recipe.ingredients.append(ingredient)
             for otherTag in otherTags:

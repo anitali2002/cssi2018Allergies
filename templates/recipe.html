@@ -7,22 +7,26 @@
 <body>
   <div class="search">
     <form action="/allergyInfo?allergyName={{allergyName}}">
-      <input type="text" placeholder="Search..." name="allergyName">
+      <input type="text" placeholder="Allergy Search..." name="allergyName">
       <button type="submit">Submit</button>
     </form>
   </div>
   <div id="header">
     <h1>Recipe Page</h1>
   </div>
-  <h2>Title</h2>
-    <p>{{title}}</p>
-  <h2>Excluded Allergens</h2>
-    <p>{{allergensFree}}</p>
-  <h2>Other Tags</h2>
-    <p>{{otherTags}}</p>
-  <h2>Ingredients</h2>
-    <p>{{ingredients}}</p>
-  <h2>Steps</h2>
-    <p>{{steps}}</p>
+  <h2 align="center">Title</h2>
+    <p align="center">{{title}}</p>
+  <h2 align="center">Excluded Allergens</h2>
+    <p align="center">{{allergenFree}}</p>
+  <h2 align="center">Other Tags</h2>
+    <p align="center">{{otherTags}}</p>
+  <h2 align="center">Ingredients</h2>
+    <p align="center">{{ingredients}}</p>
+  <h2 align="center">Steps</h2>
+    <p align="center">{{steps}}</p>
+  <a href="/allergyInfo?allergyName={{allergenFree}}">
+    <button type="button" class="button"><h2> Back </h2></button>
+    <input type="text" class = "submitType" name="allergyName" value={{allergenFree}}>
+  </a>
 </body>
 </html>

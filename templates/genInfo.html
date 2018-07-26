@@ -7,7 +7,12 @@
 <body>
   <div id="header">
     <h1>General Information </h1>
-<<<<<<< HEAD
+    <div class="search">
+      <form action="/allergyInfo?allergyName={{allergyName}}">
+        <input type="text" placeholder="Search..." name="allergyName">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
   </div>
   <h2>
     <p class="spiel"> Food allergy is a serious and potentially life-threatening medical condition affecting up to 15 million Americans. One in every 13 children has a food allergy—that’s about 2 in every U.S. classroom. And every 3 minutes, a food allergy reaction sends someone to the emergency room.
@@ -27,6 +32,7 @@
         <li>Food allergy reactions can vary unpredictably from mild to severe. Mild food allergy reactions may involve only a few hives or minor abdominal pain, though some food allergy reactions progress to severe anaphylaxis with low blood pressure and loss of consciousness. </li>
       </ul>
 
+<<<<<<< HEAD
     <h2>FAQS</h2>
       <h3>What is a food allergy?</h3>
       <p> A food allergy reaction occurs when your immune system overreacts to a food or a substance in a food, identifying it as a danger and triggering a protective response.<p>
@@ -95,37 +101,40 @@
 <p class ="indent">Food allergy may occur in response to any food, and some people are allergic to more than one food. Food allergies may start in childhood or as an adult.
 >>>>>>> 9321b02782f6460830ac4466572472a30708245f
 >>>>>>> 3c2e126aa1e0f7fa9a41e13c56e3b16364dafce6
-
-    <h3> Food Allergies Are Serious </h3>
-
-<<<<<<< HEAD
-<p>Food allergy reactions can vary unpredictably from mild to severe. Mild food allergy reactions may involve only a few hives or minor abdominal pain, though some food allergy reactions progress to severe anaphylaxis with low blood pressure and loss of consciousness.</p>
-  <h2>FAQS</h2>
-  <h3>What is a food allergy?</h3>
-<<<<<<< HEAD
-  <h3>What are the symptoms of a food allergy?</h3>
-  <h3>What can I eat?</h3>
-  <h3>Am I going to die?</h3>
-
-
 =======
-  <h3>What are symptoms of a food allergy?</h3>
-  <h3>What can I eat?</h3>
-  <h3>Am I going to die?</h3>
->>>>>>> 9321b02782f6460830ac4466572472a30708245f
-  </body>
-=======
-    <p class ="indent">     Food allergy may occur in response to any food, and some people are allergic to more than one food. Food allergies may start in childhood or as an adult.
-    <p>All food allergies have one thing in common: They are potentially serious. Always take food allergies—and the people who live with them—seriously.
-    <p>Food allergy reactions can vary unpredictably from mild to severe. Mild food allergy reactions may involve only a few hives or minor abdominal pain, though some food allergy reactions progress to severe anaphylaxis with low blood pressure and loss of consciousness.</p>
+    <h3>FAQS</h3>
+>>>>>>> 9962efb4560b72eda1fa7cba085d3f27e318b553
 
-    <h2>FAQS</h2>
+    <h4>What is a food allergy?</h4>
+    <h4>What are symptoms of a food allergy?</h4>
+    <h4>What can I eat?</h4>
+    <h4>Am I going to die?</h4>
 
-    <h3>What is a food allergy?</h3>
-    <h3>What are symptoms of a food allergy?</h3>
-    <h3>What can I eat?</h3>
-    <h3>Am I going to die?</h3>
->>>>>>> fcaf97e872fa77d6084e9d0f78056535290d2fe1
+    <h3> Other Questions </h3>
+    <div align ="center">
+      <form method="post">
+        <p> Have a question? </p> <br>
+        Question:<br>
+        <input type="text" class = "question" name="question">
+        <br>
+        <input type="submit" value="Submit Answer">
+      </form>
+      {% for question in questionsDatabase %}
+        <h4> {{question.question}} </h4>
+        {% for i in range(question.answers|length) %}
+          <p> {{question.answerNames[i]}}:{{question.answers[i]}}</p>
+        {% endfor %}
+        <form method="post">
+          <p> Have an answer?</p><br>
+          Name:<br>
+          <input type="text" class = "answer" name="answerName" value="">
+          <br>
+          Answer:<br>
+          <input type="text" class = "answer" name="answer" value="">
+          <br>
+          <input type="submit" value="Submit Answer">
+        </form>
+      {% endfor %}
+    </div>
 </body>
 </html>
->>>>>>> e3f00bfca8cd7d6171ef1aa04c1218cbf48be453

@@ -21,14 +21,23 @@
   </div>
   <h2 align="center">Title</h2>
     <p align="center">{{title}}</p>
-  <h2 align="center">Excluded Allergens</h2>
+  <h2 align="center">Excluded Allergen</h2>
     <p align="center">{{allergenFree}}</p>
   <h2 align="center">Other Tags</h2>
-    <p align="center">{{otherTags}}</p>
+      {% for otherTag in otherTags}
+        <p>{{otherTag}}</p>
+      {% endfor %}
+    <!-- <p align="center">{{otherTags}}</p> -->
   <h2 align="center">Ingredients</h2>
-    <p align="center">{{ingredients}}</p>
+    {% for ingredient in ingredients}
+      <p>{{ingredient}}</p>
+    {% endfor %}
+    <!-- <p align="center">{{ingredients}}</p> -->
   <h2 align="center">Steps</h2>
-    <p align="center">{{steps}}</p>
+    {% for step in steps}
+      <p>{{steps}}</p>
+    {% endfor %}
+    <!-- <p align="center">{{steps}}</p> -->
   <a href="/allergyInfo?allergyName={{allergenFree}}">
     <input type="button" class="back" value="Back">
     <input type="text" class="submitType" name="allergyName" value={{allergenFree}}>

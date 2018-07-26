@@ -14,7 +14,13 @@ theJinjaEnvironment = jinja2.Environment(
 
 # formats a string to all lower case, spaces taken out, and separated (by comma) into a list
 def formatString(string):
+<<<<<<< HEAD
     formattedString = string.replace("; ", ";")
+=======
+    formattedString = string.lower()
+    formattedString = formattedString.replace("; ", ";")
+    formattedString = formattedString.replace("\r", "")
+>>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
     stringList = formattedString.split(";")
 
     return stringList
@@ -66,14 +72,12 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         self.post()
 
     def post(self):
-        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
 
         allergyName = self.request.get("allergyName")
-
         templateDict = {
             "allergyName": allergyName
         }
-
+        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
         self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
@@ -161,7 +165,6 @@ class AllergyInfoPage(webapp2.RequestHandler):
         templateDict = {
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
-            "images": allergy.images,
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
             "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
@@ -254,6 +257,7 @@ class ThanksPage(webapp2.RequestHandler):
             symptoms = self.request.get("symptoms")
             symptoms = formatString(symptoms)
             toAvoid = self.request.get("toAvoid")
+<<<<<<< HEAD
             toAvoid = formatString(toAvoid)
             images = self.request.get("allergenImg")
             images = formatString(images)
@@ -266,6 +270,11 @@ class ThanksPage(webapp2.RequestHandler):
                 allergy.toAvoid.append(product)
             for link in images:
                 allergy.images.append(link)
+=======
+            image = self.request.get("allergenImg")
+
+            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
+>>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
 
             allergy.put()
 

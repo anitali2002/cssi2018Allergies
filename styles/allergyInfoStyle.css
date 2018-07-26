@@ -61,7 +61,7 @@ body {
 }
 
 #comments{
-  height: 300px;
+  height: 200px;
   text-align: left;
 }
 .scroll{
@@ -70,7 +70,7 @@ body {
 }
   /* overflow-y: auto; */
 #dataScroll{
-  height: 200px;
+  height: 250px;
 
   }
 #apiRecipes{
@@ -78,7 +78,7 @@ body {
 }
 
 #apiScroll{
-   height: 200px;
+   height: 300px;
  }
 
 
@@ -96,4 +96,8 @@ input{
 
 .submitType {
   visibility: hidden;
+}
+
+img{
+  width: 400px;
 }

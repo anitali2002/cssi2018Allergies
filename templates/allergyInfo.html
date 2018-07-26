@@ -20,6 +20,9 @@
        <p>{{symptoms}}</p>
        <h2>What to Avoid</h2>
        <p>{{toAvoid}}<p>
+       {% for i in range(images|length) %}
+         <img src="{{images[i]}}" alt="allergenImage">
+       {% endfor %}
      </div>
       <div id=" down">
       <h2>Comments</h2>
@@ -45,7 +48,7 @@
   <div class="column" id="right">
     <h2>Recipes</h2>
     <form action="/submitRecipe" align="center">
-      <button> Submit Your Recipe! </button><br>  
+      <button> Submit Your Recipe! </button><br>
       <input type="text" class = "submitType" name="allergyName" value={{allergyName}}>
     </form>
     <h3> Our Own Top Picks </h3>

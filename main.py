@@ -160,7 +160,7 @@ class AllergyInfoPage(webapp2.RequestHandler):
         templateDict = {
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
-            "images": allergy.images
+            "images": allergy.images,
             "toAvoid": allergy.toAvoid,
             "dataRecipes": recipesSearch(allergy.allergy),
             "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
@@ -253,7 +253,7 @@ class ThanksPage(webapp2.RequestHandler):
             symptoms = self.request.get("symptoms")
             toAvoid = self.request.get("toAvoid")
             images = self.request.get("allergenImg")
-            images = formattedString.split(";")
+            images = images.split(";")
 
 
             allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid)

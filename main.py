@@ -14,13 +14,9 @@ theJinjaEnvironment = jinja2.Environment(
 
 # formats a string to all lower case, spaces taken out, and separated (by comma) into a list
 def formatString(string):
-<<<<<<< HEAD
-    formattedString = string.replace("; ", ";")
-=======
     formattedString = string.lower()
     formattedString = formattedString.replace("; ", ";")
     formattedString = formattedString.replace("\r", "")
->>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
     stringList = formattedString.split(";")
 
     return stringList
@@ -28,6 +24,7 @@ def formatString(string):
 # Finds and returns the allergy entity (with the allergy information)
 # in the database of all allergens
 def allergySearch(allergySearch):
+    allergySearch = allergySearch[0].upper() + allergySearch[1:]
     allergyDatabase = Allergy.query().fetch()
     allergy = None
 
@@ -257,7 +254,6 @@ class ThanksPage(webapp2.RequestHandler):
             symptoms = self.request.get("symptoms")
             symptoms = formatString(symptoms)
             toAvoid = self.request.get("toAvoid")
-<<<<<<< HEAD
             toAvoid = formatString(toAvoid)
             images = self.request.get("allergenImg")
             images = formatString(images)
@@ -270,11 +266,6 @@ class ThanksPage(webapp2.RequestHandler):
                 allergy.toAvoid.append(product)
             for link in images:
                 allergy.images.append(link)
-=======
-            image = self.request.get("allergenImg")
-
-            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid, image = image)
->>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
 
             allergy.put()
 

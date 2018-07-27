@@ -69,12 +69,11 @@ class RecipeSubmitPage(webapp2.RequestHandler):
         self.post()
 
     def post(self):
-
+        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
         allergyName = self.request.get("allergyName")
         templateDict = {
             "allergyName": allergyName
         }
-        recipeSubmitTemplate = theJinjaEnvironment.get_template('templates/recipeSubmit.html')
         self.response.write(recipeSubmitTemplate.render(templateDict))
 
 class GenInfoPage(webapp2.RequestHandler):
@@ -229,7 +228,7 @@ class ThanksPage(webapp2.RequestHandler):
             steps = steps.replace("\r", "")
             steps = formatString(steps)
 
-            recipe = Recipe(title = title, allergenFree = allergenFree)
+            recipe = Recipe(title = title, allergenFree = allergenFree, basicIngredients = basicIngredients)
 
             for ingredient in ingredients:
                 recipe.ingredients.append(ingredient)
@@ -240,7 +239,7 @@ class ThanksPage(webapp2.RequestHandler):
 
             recipe.put()
 
-            message = "Thanks for submitting an new recipe."
+            message = "Thanks for submitting a new recipe."
             destination = "/allergyInfo?allergyName=" + allergenFree
 
         if (submission == "allergy"):
@@ -264,7 +263,7 @@ class ThanksPage(webapp2.RequestHandler):
 
             allergy.put()
 
-            message = "Thanks for submitting an new allergy."
+            message = "Thanks for submitting a new allergy."
             destination = "/"
 
         templateDict = {

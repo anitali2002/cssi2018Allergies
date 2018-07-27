@@ -221,7 +221,6 @@ class ThanksPage(webapp2.RequestHandler):
             title = self.request.get("title")
             allergenFree = self.request.get("allergenFree")
             basicIngredients = self.request.get("basicIngredients") #list
-            # basicIngredients = formatString(basicIngredients)
             ingredients = self.request.get("ingredients") #list
             ingredients = formatString(ingredients)
             otherTags = self.request.get("otherTags") #list
@@ -230,7 +229,7 @@ class ThanksPage(webapp2.RequestHandler):
             steps = steps.replace("\r", "")
             steps = formatString(steps)
 
-            recipe = Recipe(title = title, allergenFree = allergenFree, basicIngredients = basicIngredients)
+            recipe = Recipe(title = title, allergenFree = allergenFree)
 
             for ingredient in ingredients:
                 recipe.ingredients.append(ingredient)

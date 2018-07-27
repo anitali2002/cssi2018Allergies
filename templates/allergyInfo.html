@@ -66,11 +66,7 @@
     <div id="dataScroll" class="scroll">
       {% for recipe in dataRecipes %}
         <a href="/recipe?recipeName={{recipe["title"]}}"> {{recipe["title"]}} </a>
-        <p> Ingredients: {{recipe["basicIngredients"]}}
-          <!-- {% for ingredient in basicIngredients %}
-            {{ingredient}},
-          {% endfor %} -->
-        </p>
+        <p> Ingredients: {{recipe["basicIngredients"]}} </p>
       {% endfor %}
     </div>
     <h3> Other Recipes </h3>

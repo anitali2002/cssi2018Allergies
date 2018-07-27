@@ -55,3 +55,14 @@ a:hover {
 .submitType {
   visibility: hidden;
 }
+
+#steps{
+  text-align: center;
+  margin-left: 20px;
+  text-indent: -20px;
+}
+
+.body{
+  padding-left: 20px;
+  padding-right: 20px;
+}

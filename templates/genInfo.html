@@ -76,7 +76,7 @@
           <h4 class="postQuestion"> {{question.question}} </h4>
           <div class="scroll">
           {% for i in range(question.answers|length) %}
-            <p class="answer"> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
+            <p class="answers"> {{question.answerNames[i]}} says: {{question.answers[i]}}</p>
           {% endfor %}
           </div>
         </div>

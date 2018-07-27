@@ -48,7 +48,7 @@ body {
   flex: 66%;
   height: 800px;
   display: flex;
-  border-right: 1px solid #6F4E37;
+  /* border-right: 1px solid #6F4E37; */
   flex-direction: column;
   padding-left: 10px;
 }
@@ -70,7 +70,7 @@ ul{
 #right {
   flex: 33%;
   margin-right: 20px;
-  /* border-left: 1px solid #6F4E37; */
+  border-left: 1px solid #6F4E37;
   padding-left: 10px;
 }
 
@@ -118,10 +118,5 @@ input{
 }
 
 img{
-<<<<<<< HEAD
-  width: 300px;
-  align-content: center;
-=======
-  height: 200px;
->>>>>>> ad7238ab093e56cd78683d4c82a489a88440ea0c
+  height: 250px;
 }

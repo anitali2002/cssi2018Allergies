@@ -46,33 +46,25 @@ a:hover {
     width: 100%;
 }
 #row1 {
-  display: flex;
+  /* display: flex; */
   /* insert the necessery property */;
-  align-content: space-between;
-  justify-content: center;
-}
-#row2 {
-  display: flex;
-  align-content: space-between;
+  align-content: space-around;
   justify-content: center;
 }
 
-.pic {
+img {
   /* Insert the general styling that will apply to ALL images */
-  height:
+  height: 300px;
+  width: 350px;
 }
 
-#m1 {
-  flex: 1 1 auto;
-  /* Finish the flex property for this image */;
+.pictures{
+  padding-left: 10px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-#m2 {
+#row1 {
   flex: 1 1 auto;
-  /* Finish the flex property for this image */;
-}
-
-#m3 {
-  flex: 1 1 auto;
-  /* Finish the flex property for this image */;
 }

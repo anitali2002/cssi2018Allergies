@@ -14,9 +14,9 @@ theJinjaEnvironment = jinja2.Environment(
 
 # formats a string to all lower case, spaces taken out, and separated (by comma) into a list
 def formatString(string):
-    formattedString = string.lower()
-    formattedString = formattedString.replace("; ", ";")
-    formattedString = formattedString.replace("\r", "")
+    # formattedString = string.lower()
+    # formattedString = string.replace(",", ";")
+    formattedString = string.replace("; ", ";")
     stringList = formattedString.split(";")
 
     return stringList
@@ -143,12 +143,6 @@ class AllergyInfoPage(webapp2.RequestHandler):
         ingredientsSearch = self.request.get("ingredients") + ",-" + allergyName
         typeSearch = self.request.get("type")
 
-        allergy = allergySearch(allergyName)
-        print(allergy)
-
-        if (allergy == ""):
-            self.redirect("/submitAllergy")
-
         # comments about the allergy
         commentName = self.request.get("commentName")
         comment = self.request.get("comment")
@@ -163,6 +157,7 @@ class AllergyInfoPage(webapp2.RequestHandler):
             "allergyName": allergy.allergy,
             "symptoms": allergy.symptoms,
             "toAvoid": allergy.toAvoid,
+            "images": allergy.images,
             "dataRecipes": recipesSearch(allergy.allergy),
             "apiRecipes": recipeFetch(ingredientsSearch, typeSearch),
             "commentName": allergy.commentNames,
@@ -204,9 +199,9 @@ class RecipePage(webapp2.RequestHandler):
             "title": recipe.title,
             "allergenFree": recipe.allergenFree,
             "otherTags": recipe.otherTags,
+            "basicIngredients": recipe.basicIngredients,
             "ingredients": recipe.ingredients,
             "steps": recipe.steps,
-            "imageLink": recipe.image
         }
 
         self.response.write(recipeTemplate.render(templateDict))
@@ -224,17 +219,18 @@ class ThanksPage(webapp2.RequestHandler):
         if (submission == "recipe"):
             #recipe submit
             title = self.request.get("title")
-            link = self.request.get("link")
-            image = self.request.get("image")
             allergenFree = self.request.get("allergenFree")
+            basicIngredients = self.request.get("basicIngredients") #list
+            # basicIngredients = formatString(basicIngredients)
             ingredients = self.request.get("ingredients") #list
             ingredients = formatString(ingredients)
             otherTags = self.request.get("otherTags") #list
             otherTags = formatString(otherTags)
             steps = self.request.get("steps") #list
+            steps = steps.replace("\r", "")
             steps = formatString(steps)
 
-            recipe = Recipe(title = title, allergenFree = allergenFree)
+            recipe = Recipe(title = title, allergenFree = allergenFree, basicIngredients = basicIngredients)
 
             for ingredient in ingredients:
                 recipe.ingredients.append(ingredient)
@@ -258,7 +254,7 @@ class ThanksPage(webapp2.RequestHandler):
             images = self.request.get("allergenImg")
             images = formatString(images)
 
-            allergy = Allergy(allergy = allergy, symptoms = symptoms, toAvoid = toAvoid)
+            allergy = Allergy(allergy = allergy)
 
             for symptom in symptoms:
                 allergy.symptoms.append(symptom)

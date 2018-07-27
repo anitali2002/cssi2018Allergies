@@ -67,8 +67,7 @@ text-align: center;
 }
 
 .qA, .submitAnswer{
-  width: 50%;
-  padding-left: 10px;
+  width: 70%;
 }
 
 .submitAnswer{
@@ -96,14 +95,28 @@ h3{
   overflow: visible;
   overflow-y: auto;
   height: 100px;
+  padding-left: 20px;
 }
 
 .answer{
-  text-align: left;
+  text-align: center;
   text-indent: 5%;
+  width: 200px;
+}
+
+.answers{
+  text-align: left;
+  margin-left: 20px;
+  text-indent: -20px;
+  padding: 3px;
 }
 
 .genInfo {
   text-align: left;
   font-size: 16px;
+}
+
+.postQuestion{
+  padding: 0px;
+  margin: 5px;
 }
